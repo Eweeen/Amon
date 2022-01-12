@@ -11,8 +11,20 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/js/app.js', 'public/js').postCss('resources/css/app.css', 'public/css', [
-    require('postcss-import'),
-    require('tailwindcss'),
-    require('autoprefixer'),
-]);
+mix.js('resources/js/app.js', 'public/js')
+    .js('resources/js/index.js', 'public/js')
+    .js('resources/js/team.js', 'public/js')
+    .js('resources/js/chat.js', 'public/js')
+    .js('resources/js/form.js', 'public/js')
+    .js('resources/js/profil.js', 'public/js')
+    .sass('resources/sass/app.scss', 'public/css')
+    .sass('resources/sass/index.scss', 'public/css')
+    .sass('resources/sass/chat.scss', 'public/css')
+    .sass('resources/sass/forgetPass.scss', 'public/css')
+    .sass('resources/sass/form.scss', 'public/css')
+    .sass('resources/sass/login.scss', 'public/css')
+    .sass('resources/sass/profil.scss', 'public/css')
+    .sass('resources/sass/register.scss', 'public/css')
+    .sass('resources/sass/team.scss', 'public/css')
+    .sass('resources/sass/compte.scss', 'public/css')
+    .sourceMaps();

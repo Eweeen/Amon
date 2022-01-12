@@ -1,0 +1,123 @@
+// cmd : sass --watch SCSS/team.scss:./public/assets/CSS/team.css
+@import './_variables';
+
+/* ============= TEAM ============= */
+
+#team {
+    .container {
+        width: 100%;
+        @include tablet {
+            text-align: center;
+        }
+        img {
+            width: 100%;
+            height: 300px;
+            background: $white-2;
+            margin-bottom: 25px;
+        }
+        h1 {
+            margin-bottom: 10px;
+            font-size: 28px;
+            @include tablet {
+                text-align: left;
+            }
+            @include laptop {
+                font-size: 35px;
+            }
+        }
+        p {
+            line-height: 25px;
+            margin-bottom: 30px;
+            @include tablet {
+                text-align: left;
+            }
+        }
+        .social {
+            padding: 10px;
+            text-align: center;
+            background: $yellow;
+            color: $grey-1;
+            @include tablet {
+                text-align: left;
+            }
+            @include tablet {
+                display: inline-block;
+                padding: 15px;
+            }
+            &_list {
+                margin-top: 10px;
+                @include flex-justify-content(center);
+                .social_link {
+                    @extend %flex;
+                    color: $grey-1;
+                    .bx {
+                        font-size: 25px;
+                        margin: 0 10px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+/* ============= PROFILS CARDS ============= */
+
+.container_title h2 {
+    font-size: 22px;
+    margin-bottom: 10px;
+    @include laptop {
+        font-size: 30px;
+        margin-bottom: 20px;
+    }
+}
+
+.profils_card_list {
+    display: grid;
+    grid-template-columns: repeat(2, 47.5%);
+    column-gap: 5%;
+    @include tablet {
+        grid-template-columns: repeat(3, 31.33%);
+        column-gap: 3%;
+    }
+    @include laptop {
+        grid-template-columns: repeat(4, 24%);
+        column-gap: 1.25%;
+    }
+    @include desktop {
+        grid-template-columns: repeat(5, 19%);
+        column-gap: 1.25%;
+    }
+    .profil_card {
+        width: 100%;
+        margin-top: 10%;
+        padding: 10px;
+        background: $grey-1;
+        @include tablet {
+            margin-top: 9%;
+            padding: 15px;
+        }
+        @include laptop {
+            margin-top: 5%;
+            padding: 15px;
+        }
+        @include desktop {
+            margin-top: 6.5%;
+            padding: 15px;
+        }
+        img {
+            width: 100%;
+        }
+        &_infos {
+            text-align: center;
+            h2 {}
+            p {}
+        }
+        &_social {
+            @include flex-justify-content(center);
+            a {
+                color: $white-1;
+            }
+        }
+    }
+}

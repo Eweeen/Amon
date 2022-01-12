@@ -1,0 +1,114 @@
+/* ============= IMPORT ============= */
+
+@import 'variables';
+
+/* ============= GÉNÉRAL ============= */
+
+main {
+    width: 100%;
+    min-height: 100vh;
+    padding: 0;
+}
+
+
+/* ============= FORM ============= */
+
+#register-form {
+    @include up-phone {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 65%;
+        padding: 20px;
+        background: $grey-1;
+    }
+    @include tablet {
+        padding: 50px 60px;
+    }
+    @include laptop {
+        width: 60%;
+        max-width: 850px;
+    }
+    .container {
+        @include tablet {
+            padding: 0;
+        }
+        @include laptop {
+            padding: 0;
+        }
+        @include desktop {
+            padding: 0;
+        }
+        .content {
+            margin: 35px 0;
+            @include tablet {
+                margin: 30px 0;
+                #register_lastname {
+                    margin-right: 5%;
+                }
+                #register_firstname {
+                    width: 47%;
+                    margin-top: 0;
+                }
+                #register_pseudo,
+                #register_email {
+                    width: 70%;
+                }
+                .name_content,
+                .pass_content {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                }
+            }
+            #register_lastname {
+                margin-top: 0;
+                @include tablet {
+                    width: 47%;
+                    margin-right: 5%;
+                }
+            }
+            input:nth-of-type(1) {
+                margin: 0;
+            }
+            input[type="text"],
+            input[type="email"],
+            .input_password {
+                margin-top: 18px;
+                @include tablet {
+                    width: 47%;
+                }
+                input {
+                    margin: 0;
+                    @include tablet {
+                        width: 100%;
+                    }
+                }
+            }
+            .critere_bar {
+                margin: 20px 0;
+            }
+            .criteres_mdp {
+                padding-left: 15px;
+                li {
+                    font-size: 12px;
+                    list-style-type: unset;
+                }
+            }
+        }
+    }
+}
+
+
+/* ============= FORM FOOTER ============= */
+
+.form_footer {
+    width: 100%;
+    @include flex-justify-content(center);
+    padding-top: 30px;
+    a {
+        font-size: 12px;
+        color: $white-2;
+    }
+}

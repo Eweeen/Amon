@@ -1,0 +1,161 @@
+/* ============= PLACEHOLDERS ============= */
+#team .container .social_list .social_link {
+  display: flex;
+  align-items: center;
+}
+
+/* ============= MIXINS ============= */
+/* ============= VARIABLES ============= */
+/* ========== COLORS ========== */
+/* ========== Fonts ========== */
+/* ========== Font-size ========== */
+/* ========== HEIGHT NAVBAR ========== */
+/* ========== PADDING ========== */
+/* ========== MARGIN ========== */
+/* ========== TRANSITION ========== */
+/* ============= TEAM ============= */
+#team .container {
+  width: 100%;
+}
+@media screen and (min-width: 768px) {
+  #team .container {
+    text-align: center;
+  }
+}
+#team .container img {
+  width: 100%;
+  height: 300px;
+  background: rgba(255, 255, 255, 0.6);
+  margin-bottom: 25px;
+}
+#team .container h1 {
+  margin-bottom: 10px;
+  font-size: 28px;
+}
+@media screen and (min-width: 768px) {
+  #team .container h1 {
+    text-align: left;
+  }
+}
+@media screen and (min-width: 992px) {
+  #team .container h1 {
+    font-size: 35px;
+  }
+}
+#team .container p {
+  line-height: 25px;
+  margin-bottom: 30px;
+}
+@media screen and (min-width: 768px) {
+  #team .container p {
+    text-align: left;
+  }
+}
+#team .container .social {
+  padding: 10px;
+  text-align: center;
+  background: #FFC43D;
+  color: #1C1C1D;
+}
+@media screen and (min-width: 768px) {
+  #team .container .social {
+    text-align: left;
+  }
+}
+@media screen and (min-width: 768px) {
+  #team .container .social {
+    display: inline-block;
+    padding: 15px;
+  }
+}
+#team .container .social_list {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#team .container .social_list .social_link {
+  color: #1C1C1D;
+}
+#team .container .social_list .social_link .bx {
+  font-size: 25px;
+  margin: 0 10px;
+}
+
+/* ============= PROFILS CARDS ============= */
+.container_title h2 {
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+@media screen and (min-width: 992px) {
+  .container_title h2 {
+    font-size: 30px;
+    margin-bottom: 20px;
+  }
+}
+
+.profils_card_list {
+  display: grid;
+  grid-template-columns: repeat(2, 47.5%);
+  -moz-column-gap: 5%;
+       column-gap: 5%;
+}
+@media screen and (min-width: 768px) {
+  .profils_card_list {
+    grid-template-columns: repeat(3, 31.33%);
+    -moz-column-gap: 3%;
+         column-gap: 3%;
+  }
+}
+@media screen and (min-width: 992px) {
+  .profils_card_list {
+    grid-template-columns: repeat(4, 24%);
+    -moz-column-gap: 1.25%;
+         column-gap: 1.25%;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .profils_card_list {
+    grid-template-columns: repeat(5, 19%);
+    -moz-column-gap: 1.25%;
+         column-gap: 1.25%;
+  }
+}
+.profils_card_list .profil_card {
+  width: 100%;
+  margin-top: 10%;
+  padding: 10px;
+  background: #1C1C1D;
+}
+@media screen and (min-width: 768px) {
+  .profils_card_list .profil_card {
+    margin-top: 9%;
+    padding: 15px;
+  }
+}
+@media screen and (min-width: 992px) {
+  .profils_card_list .profil_card {
+    margin-top: 5%;
+    padding: 15px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .profils_card_list .profil_card {
+    margin-top: 6.5%;
+    padding: 15px;
+  }
+}
+.profils_card_list .profil_card img {
+  width: 100%;
+}
+.profils_card_list .profil_card_infos {
+  text-align: center;
+}
+.profils_card_list .profil_card_social {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.profils_card_list .profil_card_social a {
+  color: rgba(255, 255, 255, 0.8);
+}

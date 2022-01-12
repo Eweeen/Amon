@@ -1,0 +1,112 @@
+@charset "UTF-8";
+/* ============= IMPORT ============= */
+/* ============= PLACEHOLDERS ============= */
+.critere_bar, .alert_form {
+  display: flex;
+  align-items: center;
+}
+
+/* ============= MIXINS ============= */
+/* ============= VARIABLES ============= */
+/* ========== COLORS ========== */
+/* ========== Fonts ========== */
+/* ========== Font-size ========== */
+/* ========== HEIGHT NAVBAR ========== */
+/* ========== PADDING ========== */
+/* ========== MARGIN ========== */
+/* ========== TRANSITION ========== */
+/* ============= GÉNÉRAL ============= */
+.form_footer a {
+  color: rgba(255, 255, 255, 0.6);
+  text-decoration: underline;
+}
+
+.alert_form {
+  width: 206px;
+  margin-bottom: 20px;
+  padding: 15px;
+  border-radius: 5px;
+  background: #EF5F58;
+}
+.alert_form .bx {
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+/* ============= FORMS ============= */
+input[type=text],
+input[type=email],
+input[type=password],
+textarea {
+  display: block;
+  width: 100%;
+  padding: 15px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.8);
+}
+
+input[type=checkbox] {
+  background: #1C1C1D;
+}
+
+textarea {
+  resize: none;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+  -webkit-text-fill-color: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 0 0px 1000px #1C1C1D inset;
+  -webkit-transition: background-color 5000s ease-in-out 0s;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+}
+
+button {
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto;
+  padding: 17px 30px;
+  border-radius: 30px;
+  font-size: 15px;
+}
+
+.input_password {
+  position: relative;
+}
+
+.input_password input {
+  padding-right: 40px;
+}
+
+.input_password .bx {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.critere_bar span {
+  width: 32%;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.critere_bar span:nth-of-type(2) {
+  margin: 0 2%;
+}
+
+.critere_bar span.good {
+  background: #97ef58;
+}
+
+/* ============= RESPONSIVE ============= */
+@media screen and (min-width: 768px) {
+  h1 {
+    font-size: 35px;
+  }
+}

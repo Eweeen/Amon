@@ -1,0 +1,64 @@
+@charset "UTF-8";
+/* ============= IMPORT ============= */
+/* ============= PLACEHOLDERS ============= */
+#profil .profil_about_user .social_list .social_item {
+  display: flex;
+  align-items: center;
+}
+
+/* ============= MIXINS ============= */
+/* ============= VARIABLES ============= */
+/* ========== COLORS ========== */
+/* ========== Fonts ========== */
+/* ========== Font-size ========== */
+/* ========== HEIGHT NAVBAR ========== */
+/* ========== PADDING ========== */
+/* ========== MARGIN ========== */
+/* ========== TRANSITION ========== */
+/* ============= GÉNÉRAL ============= */
+/* ============= PROFIL ============= */
+#profil .profil_picture {
+  height: 330px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background: linear-gradient(0deg, #1C1C1D 0%, #313138 100%);
+}
+#profil .profil_picture .img_container {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.8);
+  margin: 0 auto;
+  border: 10px solid #46464C;
+}
+#profil .profil_picture .profil_pseudo {
+  text-align: center;
+  margin: 30px 0;
+}
+@media screen and (min-width: 768px) {
+  #profil .profil_about_user {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+#profil .profil_about_user .social_list .social_item {
+  width: 100%;
+  height: 50px;
+  margin-bottom: 10px;
+  background: #46464C;
+}
+#profil .profil_about_user .social_list .social_item .bx {
+  color: rgba(255, 255, 255, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  background: #1C1C1D;
+}
+#profil .profil_about_user .profil_description p {
+  line-height: 25px;
+}

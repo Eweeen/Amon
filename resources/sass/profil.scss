@@ -1,0 +1,57 @@
+/* ============= IMPORT ============= */
+
+@import '_variables';
+
+/* ============= GÉNÉRAL ============= */
+
+
+/* ============= PROFIL ============= */
+
+#profil {
+    .profil_picture {
+        height: 330px;
+        @include flex-justify-content(center);
+        flex-direction: column;
+        background: linear-gradient(0deg, $grey-1 0%, $grey-2 100%);
+        .img_container {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            background: $white-1;
+            margin: 0 auto;
+            border: 10px solid $grey-3;
+        }
+        .profil_pseudo {
+            text-align: center;
+            margin: $mm-1 0;
+        }
+    }
+    .profil_about_user {
+        @include tablet {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .social_list {
+            .social_item {
+                @extend %flex;
+                width: 100%;
+                height: 50px;
+                margin-bottom: $m-2;
+                background: $grey-3;
+                .bx {
+                    color: $white-1;
+                    @include flex-justify-content(center);
+                    width: 50px;
+                    height: 50px;
+                    background: $grey-1;
+                }
+            }
+        }
+        .profil_description {
+            p {
+                line-height: 25px;
+            }
+        }
+    }
+}

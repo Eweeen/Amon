@@ -1,0 +1,137 @@
+/* ============= IMPORTS ============= */
+
+@import 'variables';
+
+/* ============= GÉNÉRAL ============= */
+
+label {
+    color: $white-3;
+}
+
+button {
+    margin-top: 30px;
+}
+
+.fields {
+    position: relative;
+    margin-top: 18px;
+}
+
+
+/* ============= USER CONTENT ============= */
+
+#user-profil {
+    h2 {
+        margin-bottom: $m-5;
+        @include tablet {
+            max-width: 800px;
+            margin: 0 auto $mm-1 auto;
+        }
+    }
+    .user_container {
+        width: 100%;
+        @include tablet {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: $pl-1;
+            background: $grey-1;
+        }
+        form {
+            .user_img {
+                position: relative;
+                display: block;
+                width: 170px;
+                height: 170px;
+                cursor: pointer;
+                margin: 0 auto;
+                color: $white-1;
+                @include tablet {
+                    margin: 0;
+                }
+                &_hover {
+                    @extend %flex;
+                    width: 100%;
+                    height: 100%;
+                    position: absolute;
+                    background: rgba($color: #000000, $alpha: 0.4);
+                    border-radius: 50%;
+                    opacity: 0;
+                    visibility: hidden;
+                    .bx {
+                        font-size: 80px;
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                    }
+                }
+                &:hover .user_img_hover {
+                    opacity: 1;
+                    visibility: visible;
+                }
+                .img_container {
+                    height: 100%;
+                    background: $grey-3;
+                    border-radius: 50%;
+                }
+            }
+            #user_img_profil {
+                display: none;
+            }
+            .social {
+                margin: 30px 0;
+                &_list {
+                    display: block;
+                    .social_item {
+                        @extend %flex;
+                        width: 100%;
+                        height: 50px;
+                        margin-top: 10px;
+                        .bx {
+                            @include flex-justify-content(center);
+                            width: 50px;
+                            height: 50px;
+                            background: $grey-1;
+                            @include tablet {
+                                background: $grey-2;
+                            }
+                        }
+                        input {
+                            background: $grey-3;
+                            width: calc(100% - 50px);
+                            height: 50px;
+                            padding: 15px;
+                            border: 0;
+                        }
+                    }
+                }
+            }
+            input[type="password"] {
+                padding-right: 40px;
+                margin-top: 15px;
+                &~.bx {
+                    position: absolute;
+                    top: 50%;
+                    right: 10px;
+                    transform: translateY(-50%);
+                    cursor: pointer;
+                }
+            }
+            .verif_password {
+                .critere_bar {
+                    margin: 20px 0;
+                }
+                .criteres_mdp {
+                    padding-left: 15px;
+                    li {
+                        font-size: 12px;
+                        list-style-type: unset;
+                    }
+                }
+            }
+        }
+        h3 {
+            margin: 65px 0 25px 0;
+        }
+    }
+}

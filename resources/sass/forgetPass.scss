@@ -1,0 +1,77 @@
+// Variables
+@import 'variables';
+
+/* ============= GÉNÉRAL ============= */
+
+body {
+    background: $grey-1;
+}
+
+
+/* ============= ALERTS ============= */
+
+.alert {
+    @extend %flex;
+    width: 206px;
+    padding: 15px;
+    margin-bottom: 20px;
+    background: #EF5F58;
+    border-radius: 5px;
+}
+
+.alert .bx {
+    margin-right: 10px;
+}
+
+
+/* ============= FORM ============= */
+
+#forget-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh;
+    padding: 30px;
+}
+
+#login-form .content {
+    margin: 35px 0;
+}
+
+input {
+    margin: 30px 0;
+}
+
+
+/* ============= RESPONSIVE ============= */
+
+@media screen and (min-width: 576px) {
+    #forget-form {
+        padding: 80px;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    body {
+        background: $grey-3;
+    }
+    #forget-form {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 55%;
+        height: auto;
+        padding: 80px 65px;
+        background: $grey-1;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    #forget-form {
+        width: 40%;
+        max-width: 450px;
+    }
+}
+
+@media screen and (min-width: 1200px) {}
