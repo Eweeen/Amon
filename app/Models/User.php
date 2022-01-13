@@ -2,15 +2,19 @@
 
 namespace App\Models;
 
+use App\Traits\Uuid;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
-class User extends Authenticatable
+class User extends Authenticatable implements MustVerifyEmail
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasApiTokens, HasFactory, Notifiable, Uuid;
+
+    public $incrementing = false;
+    protected $keyType = 'uuid';
 
     /**
      * The attributes that are mass assignable.
@@ -18,9 +22,12 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
+        'pseudo',
+        'firstname',
+        'lastname',
+        'img_profil',
         'email',
-        'password',
+        'userpass',
     ];
 
     /**
@@ -29,7 +36,7 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $hidden = [
-        'password',
+        'userpass',
         'remember_token',
     ];
 

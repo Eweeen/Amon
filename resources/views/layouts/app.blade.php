@@ -13,7 +13,7 @@
     <!-- CSS -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     @yield('styles')
-    <link rel="stylesheet" href="libs/boxicons/css/boxicons.min.css">
+    <link href="{{ asset('libs/boxicons/css/boxicons.min.css') }}" rel="stylesheet">
 </head>
 <body>
     @yield('nav')
@@ -21,8 +21,7 @@
     @yield('content')
 
     @include('partials.footer')
-
-    <script src="libs/jquery.min.js"></script>
+    <script type="text/javascript" src="{{ asset('libs/jquery.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
     @yield('script')
 </body>

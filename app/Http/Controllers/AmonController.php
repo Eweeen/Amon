@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
 
 class AmonController extends Controller
 {
@@ -23,8 +24,23 @@ class AmonController extends Controller
         return view('chat');
     }
 
-    public function profil(){
-        return view('profil');
+    public function profil($id){
+        if (User::find($id)){
+            $user = User::select('users.id','pseudo', 'img_profil', 'admin', 'description', 'twitch', 'twitter', 'instagram')
+            ->join('links', 'users.id', '=', 'links.user_id')
+            ->where('users.id', $id)
+            ->first();
+
+            return view('profil', ['user' => $user]);
+        } else {
+            dd('utilisateur introuvable !');
+            return view('profilNotFound');
+        }
+    }
+
+    public function profilNotFound(){
+        dd('utilisateur introuvable !');
+        return view('profilNotFound');
     }
 
     public function login(){

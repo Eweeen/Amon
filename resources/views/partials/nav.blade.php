@@ -7,7 +7,7 @@
 
         <div class="logo">
             <a href="{{ route('home') }}" class="nav_link img_container">
-                <img src="{{URL::asset('/img/logo.png')}}" alt="">
+                <img src="{{ asset('img/logo.png') }}" alt="Logo Amon">
             </a>
         </div>
 
@@ -29,11 +29,9 @@
             <li class="nav_item nav_shop">
                 <a href="https://evolving.gg/?s=amon+esport&post_type=product&product_cat=0" target="_blank" class="nav_link"><i class='bx bx-shopping-bag'></i><p>Shop</p></a>
             </li>
-{{-- SI L'UTILISATEUR N'EST PAS CONNECTER --}}
-                <li class="nav_item nav_account">
-                    <a href="{{ route('login') }}" class="nav_link"><p>Connexion</p><i class='bx bxs-user'></i></a>
-                </li>
-{{-- SI L'UTILISATEUR EST CONNECTER --}}
+        {{-- SI L'UTILISATEUR EST CONNECTER --}}
+            @if (Route::has('login'))
+                @auth
                 <li class="nav_item nav_account">
                     <div class="nav_account_phone">
                         <p>Mon compte</p>
@@ -42,7 +40,7 @@
                     <div class="nav_account_laptop">
                         <div class="btn btn_dropdown"></div>
                         <div class="img_container">
-                            <img src="" alt="">
+                            <img src="{{ asset('img/'.Auth::user()->img_profil) }}" alt="{{ Auth::user()->pseudo }}">
                         </div>
                     </div>
                     <ul class="dropdown_list">
@@ -51,15 +49,25 @@
                                 <i class='bx bx-user'></i>
                                 <span>Mon compte</span>
                             </a>
-                            <a href="{{ route('compte') }}" class="dropdown_link">
-                                <i class='bx bx-power-off' ></i>
-                                <span>Déconnexion</span>
-                            </a>
+                            <form method="POST" action="{{ route('logout') }}">
+                                @csrf
+                                <a href="{{ route('logout') }}" class="dropdown_link" onclick="event.preventDefault();
+                                                                                    this.closest('form').submit();">
+                                    <i class='bx bx-power-off'></i>
+                                    <span>Déconnexion</span>
+                                </a>
+                            </form>
                         </li>
                     </ul>
                 </li>
-{{-- FIN DE LA CONDITION --}}
-            
+        {{-- SI L'UTILISATEUR N'EST PAS CONNECTER --}}
+                @else
+                <li class="nav_item nav_account">
+                    <a href="{{ route('login') }}" class="nav_link"><p>Connexion</p><i class='bx bxs-user'></i></a>
+                </li>
+                @endauth
+            @endif
+        {{-- FIN DE LA CONDITION --}}
         </ul>
 
         <div class="shop">

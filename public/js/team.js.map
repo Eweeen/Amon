@@ -1,0 +1,1 @@
+{"version":3,"file":"/js/team.js","mappings":"AAAAA,GAAE,WAEEC,IAAIC,KAAK,CACLC,SAAU,IACVC,MAAM","sources":["webpack:///./resources/js/team.js"],"sourcesContent":["$(function() {\r\n\r\n    AOS.init({\r\n        duration: 1000,\r\n        once: true\r\n    });\r\n\r\n});"],"names":["$","AOS","init","duration","once"],"sourceRoot":""}
