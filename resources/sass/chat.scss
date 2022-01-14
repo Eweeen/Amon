@@ -21,24 +21,54 @@ input:-webkit-autofill:focus {
 }
 
 .modal_container {
-    width: 20px;
-    height: 20px;
-    position: relative;
-    .modal_settings_chat {
-        position: absolute;
-        top: 30px;
-        right: 0;
-        background: $grey-3;
-        padding: 10px;
-        visibility: hidden;
-        opacity: 0;
+    user-select: none;
+    .btn_dot {
+        color: $white-1;
     }
-    &::before {
-        content: "";
-        position: absolute;
+    .modal_bg {
+        position: fixed;
         top: 0;
         left: 0;
-        background: red;
+        width: 100%;
+        height: 100vh;
+        visibility: hidden;
+        opacity: 0;
+        z-index: 100;
+        background: rgba($color: $grey-1, $alpha: 0.7);
+        &.active_modal {
+            visibility: visible;
+            opacity: 1;
+        }
+        .modal_settings_chat {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 250px;
+            transform: translate(-50%, -50%);
+            background: $grey-3;
+            span {
+                padding: $p-2;
+                @extend %flex;
+                color: $white-1;
+                cursor: pointer;
+                .bx-x {
+                    font-size: $f-1;
+                    margin-right: $m-1;
+                }
+                .bx:not(.bx-x) {
+                    width: 28px;
+                    height: 28px;
+                    @include flex-justify-content(center);
+                    font-size: $f-2;
+                    margin-right: $m-1;
+                }
+                a {
+                    width: 100%;
+                    @extend %flex;
+                    color: $white-1;
+                }
+            }
+        }
     }
 }
 
@@ -55,12 +85,14 @@ input:-webkit-autofill:focus {
 /* ============= LIST CHAT ============= */
 
 #list-chat {
+    position: relative;
     height: calc(100vh - $header-height);
     overflow: hidden;
     background: $grey-1;
     @include laptop {
         width: 30%;
     }
+    /* ============= SEARCH BAR + ADD CONVERSATION ============= */
     .bar {
         width: 100%;
         padding: 5px 15px 5px 15px;
@@ -94,7 +126,7 @@ input:-webkit-autofill:focus {
             border-radius: 30px;
         }
     }
-    /* ===== LIST CONV ===== */
+    /* ============= LIST CONV ============= */
     .list_conv {
         width: 100%;
         height: calc(100% - 70px);
@@ -102,41 +134,45 @@ input:-webkit-autofill:focus {
             height: calc(100% - 91px);
         }
         .item_conv {
-            position: relative;
             width: 100%;
-            padding: 15px;
-            @extend %flex;
-            cursor: pointer;
+            height: 80px;
+            padding: $p-3;
+            @include flex-justify-content(space-between);
+            overflow: hidden;
+            user-select: none;
             &.actif_conv {
                 background: rgba($color: $grey-3, $alpha: 0.7);
             }
             &:hover:not(.actif_conv) {
                 background: rgba(70, 70, 76, 0.3);
             }
-            .conv_img {
-                width: 50px;
+            &_container {
+                width: calc(100% - 30px);
                 @extend %flex;
-            }
-            .conv_infos {
-                .conv_name {
-                    font-size: 20px;
-                    font-weight: 400;
-                    margin-left: 15px;
-                    margin-bottom: 5px;
+                .img_container {
+                    width: 50px;
+                    height: 50px;
                 }
-                .conv_last_msg {
-                    font-size: 12px;
-                    margin-left: 15px;
-                    color: $white-2;
+                .conv_infos {
+                    width: calc(100% - 50px);
+                    padding-left: $p-3;
+                    .conv_name {
+                        font-size: 19px;
+                        font-weight: 500;
+                        margin-bottom: $m-1;
+                    }
+                    .conv_last_msg {
+                        font-size: 13px;
+                        line-height: 20px;
+                        height: 20px;
+                        overflow: hidden;
+                        color: $white-2;
+                    }
                 }
             }
             .modal_container {
-                position: absolute;
-                top: 50%;
-                right: 15px;
-                transform: translateY(-50%);
+                margin: 0 $m-1;
                 .btn_dot {
-                    color: $white-1;
                     visibility: hidden;
                     opacity: 0;
                 }
@@ -145,6 +181,71 @@ input:-webkit-autofill:focus {
                 &:hover .btn_dot {
                     visibility: visible;
                     opacity: 1;
+                }
+            }
+        }
+    }
+    .list_new_conv {
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        height: calc(100% - 70px);
+        background: $grey-1;
+        opacity: 0;
+        visibility: hidden;
+        @include laptop {
+            top: 91px;
+            height: calc(100% - 91px);
+        }
+        &.active_list_new_conv {
+            opacity: 1;
+            visibility: visible;
+        }
+        .item_conv {
+            width: 100%;
+            height: 80px;
+            padding: $p-3;
+            @include flex-justify-content(space-between);
+            overflow: hidden;
+            user-select: none;
+            &:hover {
+                background: rgba(70, 70, 76, 0.3);
+            }
+            &_container {
+                width: 100%;
+                @extend %flex;
+                .img_container {
+                    width: 50px;
+                    height: 50px;
+                }
+                .conv_infos {
+                    width: calc(100% - 50px);
+                    padding: 0 $p-2;
+                    @include flex-justify-content(space-between);
+                    .conv_name {
+                        font-size: 19px;
+                        font-weight: 500;
+                        margin-bottom: $m-1;
+                    }
+                    .btn_container {
+                        padding-left: $p-3;
+                        @extend %flex;
+                        .btn {
+                            padding: $p-1;
+                            background: $grey-2;
+                            border-radius: 50%;
+                            .bx {
+                                font-size: $f-2;
+                            }
+                            &:hover {
+                                background: $grey-3;
+                            }
+                            &:nth-of-type(2) {
+                                margin-left: $m-2;
+                            }
+                        }
+                    }
                 }
             }
         }
@@ -198,13 +299,25 @@ input:-webkit-autofill:focus {
             width: 100%;
             margin-bottom: 15px;
             display: flex;
-            .msg_img_profil {
+            .img_container {
                 width: 25px;
                 position: relative;
+                img {
+                    border-radius: 50%;
+                }
             }
             .msg_container {
-                position: relative;
                 width: 100%;
+                &:hover .modal_container .btn_dot {
+                    visibility: visible;
+                    opacity: 1;
+                }
+                .modal_container {
+                    .btn_dot {
+                        visibility: hidden;
+                        opacity: 0;
+                    }
+                }
                 .msg_pseudo {
                     display: inline-block;
                     margin-bottom: 8px;
@@ -213,7 +326,7 @@ input:-webkit-autofill:focus {
                     opacity: 0.6;
                 }
                 .msg_content {
-                    @include flex-justify-content(space-between);
+                    @extend %flex;
                     p {
                         display: inline-block;
                         max-width: 80%;
@@ -228,8 +341,13 @@ input:-webkit-autofill:focus {
             .msg_img_profil {
                 margin-right: 8px;
             }
-            .msg_content p {
-                border-radius: 2px 20px 20px 20px;
+            .msg_content {
+                p {
+                    border-radius: 2px 20px 20px 20px;
+                }
+                .btn_dot {
+                    margin-left: $m-3;
+                }
             }
         }
         .msg_right {
@@ -244,6 +362,9 @@ input:-webkit-autofill:focus {
                     p {
                         text-align: left;
                         border-radius: 20px 2px 20px 20px;
+                    }
+                    .btn_dot {
+                        margin-right: $m-3;
                     }
                 }
             }
@@ -300,7 +421,7 @@ input:-webkit-autofill:focus {
             .login_msg {
                 @extend %flex;
                 p {
-                    margin-left: 10px;
+                    margin-left: $m-2;
                 }
                 a button {
                     padding: 20px;

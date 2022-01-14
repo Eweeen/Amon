@@ -49,7 +49,7 @@
             <div class="container">
                 <h1>Bienvenu sur le site de la team Amon</h1>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores maxime nemo corporis nisi libero eius, mollitia, soluta exercitationem reprehenderit similique laboriosam distinctio corrupti quasi eligendi eaque, sequi delectus! Laboriosam, dolor!</p>
-                <a href="?page=team" class="btn">En savoir plus</a>
+                <a href="{{ Route("team") }}" class="btn">En savoir plus</a>
             </div>
         </section>
 
