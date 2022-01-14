@@ -32,35 +32,72 @@
 
                 <!-- Le chat général n'a pas les 3 points pour supprimer la conversation car la conversation ne peux pas être supprimer -->
                 <li class="item_conv" data-conv="1000000000">
-                    <div class="conv_img img_container">
-                        <img src="../public/assets/IMG/logo.png" alt="">
-                    </div>
-                    <div class="conv_infos">
-                        <h2 class="conv_name">Chat Général</h2>
-                        <p class="conv_last_msg">Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
+                    <div class="item_conv_container">
+                        <div class="conv_img img_container">
+                            <img src="img/logo.png" alt="">
+                        </div>
+                        <div class="conv_infos">
+                            <h2 class="conv_name">Chat Général</h2>
+                            <p class="conv_last_msg">Lorem ipsum dolor sit amet</p>
+                        </div>
                     </div>
                 </li>
 
                 <li class="item_conv" data-conv="1000000002">
-                    <div class="conv_img img_container">
-                        <img src="../public/assets/IMG/logo.png" alt="">
-                    </div>
-                    <div class="conv_infos">
-                        <h2 class="conv_name">Ewen</h2>
-                        <p class="conv_last_msg">Lorem ipsum dolor sit amet</p>
+                    <div class="item_conv_container">
+                        <div class="conv_img img_container">
+                            <img src="img/logo.png" alt="">
+                        </div>
+                        <div class="conv_infos">
+                            <h2 class="conv_name">Ewen</h2>
+                            <p class="conv_last_msg">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cupiditate nesciunt eveniet totam obcaecati numquam expedita autem, veritatis eligendi at quibusdam accusantium quo saepe asperiores earum blanditiis nisi esse inventore nam.</p>
+                        </div>
                     </div>
 
                     <div class="modal_container">
                         <div class="btn btn_dot">
                             <i class="bx bx-dots-vertical-rounded"></i>
                         </div>
-                        <div class="modal_settings_chat">
-                            <span id="delete-chat">Supprimer</span>
+                        <div class="modal_bg">
+                            <div class="modal_settings_chat">
+                                <span class="close_modal"><i class='bx bx-x'></i>Fermer</span>
+                                <span class="delete_conversation"><i class='bx bx-trash-alt'></i>Supprimer la conversation</span>
+                            </div>
                         </div>
                     </div>
 
                 </li>
 
+            </ul>
+            <ul class="list_new_conv">
+                <li class="item_conv" data-conv="1000000002">
+                    <div class="item_conv_container">
+                        <div class="conv_img img_container">
+                            <img src="img/logo.png" alt="">
+                        </div>
+                        <div class="conv_infos">
+                            <h2 class="conv_name">Ewen</h2>
+                            <div class="btn_container">
+                                <div class="accept_btn btn"><i class='bx bx-check'></i></div>
+                                <div class="refuse_btn btn"><i class='bx bx-x'></i></div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="item_conv" data-conv="1000000002">
+                    <div class="item_conv_container">
+                        <div class="conv_img img_container">
+                            <img src="img/logo.png" alt="">
+                        </div>
+                        <div class="conv_infos">
+                            <h2 class="conv_name">Ewen</h2>
+                            <div class="btn_container">
+                                <div class="accept_btn btn"><i class='bx bx-check'></i></div>
+                                <div class="refuse_btn btn"><i class='bx bx-x'></i></div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
             </ul>
         </section>
         <!-- ========== SECTION AFFICHAGE DU CHAT ========== -->
@@ -74,8 +111,11 @@
                     <div class="btn btn_dot">
                         <i class="bx bx-dots-vertical-rounded"></i>
                     </div>
-                    <div class="modal_settings_chat">
-                        <span id="delete-chat">Supprimer</span>
+                    <div class="modal_bg">
+                        <div class="modal_settings_chat">
+                            <span class="close_modal"><i class='bx bx-x'></i>Fermer</span>
+                            <span class="delete_conversation"><i class='bx bx-trash-alt'></i>Supprimer</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -85,18 +125,22 @@
 
                 <div class="msg msg_left">
                     <div class="msg_img_profil img_container">
-                        <img src="../app/data/users/default_user.png">
+                        <img src="img/default_user.png">
                     </div>
                     <div class="msg_container">
                         <div class="msg_pseudo">BenjaminDrn</div>
                         <div class="msg_content">
-                            <p>Lorem int earum quae magni fuga!</p>
+                            <p data-id-msg="0001">Sucer c bien</p>
                             <div class="modal_container">
                                 <div class="btn btn_dot">
                                     <i class="bx bx-dots-vertical-rounded"></i>
                                 </div>
-                                <div class="modal_settings_chat">
-                                    <span id="delete-chat">Supprimer</span>
+                                <div class="modal_bg">
+                                    <div class="modal_settings_chat">
+                                        <span class="close_modal"><i class='bx bx-x' ></i>Fermer</span>
+                                        <span class="signal_message"><i class='bx bx-message-square-error'></i>Signaler le message</span>
+                                        <span><a href=""><i class='bx bx-user'></i>Voir le profil</a></span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -105,12 +149,23 @@
 
                 <div class="msg msg_right"> 
                     <div class="msg_img_profil img_container">
-                        <img src="../app/data/users/default_user.png">
+                        <img src="img/default_user.png">
                     </div>
                     <div class="msg_container">
                         <div class="msg_pseudo">BenjaminDrn</div>
                         <div class="msg_content">
-                            <p>Lorem int earum quae magni fuga!</p>
+                            <p data-id-msg="000">Je suis un bg (benjamin)</p>
+                            <div class="modal_container">
+                                <div class="btn btn_dot">
+                                    <i class="bx bx-dots-vertical-rounded"></i>
+                                </div>
+                                <div class="modal_bg">
+                                    <div class="modal_settings_chat">
+                                        <span class="close_modal"><i class='bx bx-x' ></i>Fermer</span>
+                                        <span class="delete_message"><i class='bx bx-trash-alt'></i>Supprimer le message</span>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
