@@ -1,59 +1,66 @@
-<x-guest-layout>
+<x-form-layout>
+    <x-slot name="style">
+        <link href="{{ asset('css/register.css') }}" rel="stylesheet">
+    </x-slot>
     <x-auth-card>
-        <x-slot name="logo">
-            <a href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
-            </a>
-        </x-slot>
+        <section id="register-form">
+            <div class="container">
+                <h1>S'inscrire</h1>
+                
+                <form method="POST" action="{{ route('register') }}">
+                    @csrf
+                    <div class="content">
+                        <!-- Validation Errors -->
+                        <x-auth-validation-errors class="mb-4" :errors="$errors" />
 
-        <!-- Validation Errors -->
-        <x-auth-validation-errors class="mb-4" :errors="$errors" />
-
-        <form method="POST" action="{{ route('register') }}">
-            @csrf
-
-            <!-- Name -->
-            <div>
-                <x-label for="name" :value="__('Name')" />
-
-                <x-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus />
-            </div>
-
-            <!-- Email Address -->
-            <div class="mt-4">
-                <x-label for="email" :value="__('Email')" />
-
-                <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required />
-            </div>
-
-            <!-- Password -->
-            <div class="mt-4">
-                <x-label for="password" :value="__('Password')" />
-
-                <x-input id="password" class="block mt-1 w-full"
+                        <div class="name_content">
+                            <x-input id="lastname" type="text" name="lastname" placeholder="Nom" :value="old('lastname')" required autofocus />
+                            <x-input id="firstname" type="text" name="firstname" placeholder="Prénom" :value="old('firstname')" required />
+                        </div>
+                        <x-input id="pseudo" type="text" name="pseudo" placeholder="Pseudo" :value="old('pseudo')" required />
+                        <x-input id="email" type="email" name="email" placeholder="E-mail" :value="old('email')" required />
+                        <div class="pass_content">
+                            <div class="input_password">
+                                <x-input id="password"
                                 type="password"
                                 name="password"
+                                placeholder="Mot de passe"
                                 required autocomplete="new-password" />
-            </div>
-
-            <!-- Confirm Password -->
-            <div class="mt-4">
-                <x-label for="password_confirmation" :value="__('Confirm Password')" />
-
-                <x-input id="password_confirmation" class="block mt-1 w-full"
+                                <i class="bx bx-lock-alt"></i>
+                            </div>
+                            <div class="input_password">
+                                <x-input id="password_confirmation"
                                 type="password"
-                                name="password_confirmation" required />
+                                name="password_confirmation"
+                                placeholder="Confirmer le mot de passe" 
+                                required />
+                                <i class="bx bx-lock-alt"></i>
+                            </div>
+                        </div>
+                        <div class="verif_email">
+                            <div class="critere_bar">
+                                <span></span><span></span><span></span>
+                            </div>
+                            
+                            <ul class="criteres_mdp">
+                                <li>8 caractères minimum</li>
+                                <li>Lettres majuscules et minuscules (aA - zZ)</li>
+                                <li>Chiffre (0 - 9)</li>
+                                <li>Caractères spéciaux (@#&)</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <x-button name="register_btn" id="register_btn">
+                        {{ __('Inscription') }}
+                    </x-button>
+                </form>
+                    
+                <div class="form_footer">
+                    <a href="{{ route('login') }}">
+                        {{ __('Connexion') }}
+                    </a>
+                </div>
             </div>
-
-            <div class="flex items-center justify-end mt-4">
-                <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('login') }}">
-                    {{ __('Already registered?') }}
-                </a>
-
-                <x-button class="ml-4">
-                    {{ __('Register') }}
-                </x-button>
-            </div>
-        </form>
+        </section>
     </x-auth-card>
-</x-guest-layout>
+</x-form-layout>

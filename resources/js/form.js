@@ -19,7 +19,7 @@ $(function() {
 
     });
 
-    $("#register_pass").keyup(function() {
+    $("#password").keyup(function() {
         let score = 0;
         let mdp = $(this).val();
 
@@ -30,13 +30,13 @@ $(function() {
         if (/(?=.{0,}[0-9])/.test(mdp)) {
             score += 1;
         }
-        if (/(?=.{0,}[a-z])/.test($("#register_pass").val())) {
+        if (/(?=.{0,}[a-z])/.test($("#password").val())) {
             score += 1;
         }
-        if (/(?=.{0,}[A-Z])/.test($("#register_pass").val())) {
+        if (/(?=.{0,}[A-Z])/.test($("#password").val())) {
             score += 1;
         }
-        if (/(?=.{0,}\W)/.test($("#register_pass").val())) {
+        if (/(?=.{0,}\W)/.test($("#password").val())) {
             score += 1;
         }
 

@@ -14,17 +14,25 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+Route::middleware(['auth'])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+
+    Route::get('/compte', '\App\Http\Controllers\UserController@data')->name('compte');
+    Route::post('/update/links/{id}', '\App\Http\Controllers\UserController@updateLinks')->name('updateLinks');
+    Route::post('/update/password/{id}', '\App\Http\Controllers\UserController@updatePassword')->name('updatePassword');
+
+});
 
 require __DIR__.'/auth.php';
 
 Route::get('/', [AmonController::class, 'index'])->name('home');
 Route::get('/team', [AmonController::class, 'team'])->name('team');
 Route::get('/competition', [AmonController::class, 'competition'])->name('competition');
-Route::get('/chat', [AmonController::class, 'chat'])->name('chat');
-Route::get('/profil', [AmonController::class, 'profil'])->name('profil');
-Route::get('/compte', [AmonController::class, 'compte'])->name('compte');
-Route::get('/login', [AmonController::class, 'login'])->name('login');
-Route::get('/register', [AmonController::class, 'register'])->name('register');
+Route::get('/chat', '\App\Http\Controllers\ChatController@chat')->name('chat');
+Route::get('/profil/{id}', [AmonController::class, 'profil'])->name('profil');
+Route::get('/profil', [AmonController::class, 'profilNotFound'])->name('profilNotFound');
+
+// Route::get('/login', [AmonController::class, 'login'])->name('login');
+// Route::get('/register', [AmonController::class, 'register'])->name('register');
