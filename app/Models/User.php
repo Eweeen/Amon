@@ -9,7 +9,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
-class User extends Authenticatable implements MustVerifyEmail
+class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable, Uuid;
 
@@ -27,7 +27,7 @@ class User extends Authenticatable implements MustVerifyEmail
         'lastname',
         'img_profil',
         'email',
-        'userpass',
+        'password',
     ];
 
     /**
@@ -36,7 +36,7 @@ class User extends Authenticatable implements MustVerifyEmail
      * @var array<int, string>
      */
     protected $hidden = [
-        'userpass',
+        'password',
         'remember_token',
     ];
 
