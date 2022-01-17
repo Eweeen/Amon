@@ -29,25 +29,38 @@
 
             <ul class="list_conv">
                 <!-- Le chat général n'a pas les 3 points pour supprimer la conversation car la conversation ne peux pas être supprimer -->
+                <li class="item_conv" data-conv="1000000000">
+                    <div class="item_conv_container">
+                        <div class="conv_img img_container">
+                            <img src="img/logo.png" alt="">
+                        </div>
+                        <div class="conv_infos">
+                            <h2 class="conv_name">Chat Général</h2>
+                            <p class="conv_last_msg">Lorem ipsum dolor sit amet</p>
+                        </div>
+                    </div>
+                </li>
                 @auth
                     @for($i = 0; $i < count($messages); $i++)
                     <li class="item_conv" data-conv="{{ $messages[$i]->id_message }}">
-                        <div class="conv_img img_container">
-                            <img src="{{ asset('img/'.$user[$i]->img_profil) }}" alt="{{ $user[$i]->pseudo }}">
-                        </div>
-                        <div class="conv_infos">
-                            <h2 class="conv_name">{{ $user[$i]->pseudo }}</h2>
-                            <p class="conv_last_msg">{{ $messages[$i]->message }}</p>
-                        </div>
-
-                        <div class="modal_container">
-                            <div class="btn btn_dot">
-                                <i class="bx bx-dots-vertical-rounded"></i>
+                        <div class="item_conv_container">
+                            <div class="conv_img img_container">
+                                <img src="{{ asset('img/'.$user[$i]->img_profil) }}" alt="{{ $user[$i]->pseudo }}">
                             </div>
-                            <div class="modal_bg">
-                                <div class="modal_settings_chat">
-                                    <span class="close_modal"><i class='bx bx-x'></i>Fermer</span>
-                                    <span class="delete_conversation"><i class='bx bx-trash-alt'></i>Supprimer la conversation</span>
+                            <div class="conv_infos">
+                                <h2 class="conv_name">{{ $user[$i]->pseudo }}</h2>
+                                <p class="conv_last_msg">{{ $messages[$i]->message }}</p>
+                            </div>
+    
+                            <div class="modal_container">
+                                <div class="btn btn_dot">
+                                    <i class="bx bx-dots-vertical-rounded"></i>
+                                </div>
+                                <div class="modal_bg">
+                                    <div class="modal_settings_chat">
+                                        <span class="close_modal"><i class='bx bx-x'></i>Fermer</span>
+                                        <span class="delete_conversation"><i class='bx bx-trash-alt'></i>Supprimer la conversation</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>

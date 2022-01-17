@@ -27,7 +27,7 @@ class User extends Authenticatable implements MustVerifyEmail
         'lastname',
         'img_profil',
         'email',
-        'userpass',
+        'password',
     ];
 
     /**
@@ -36,7 +36,7 @@ class User extends Authenticatable implements MustVerifyEmail
      * @var array<int, string>
      */
     protected $hidden = [
-        'userpass',
+        'password',
         'remember_token',
     ];
 

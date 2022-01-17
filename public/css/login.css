@@ -1,3 +1,86 @@
-#login-form .content .btn_remember_me{align-items:center;display:flex}main{min-height:100vh;padding:0;width:100%}#login-form{display:flex;flex-direction:column;height:100vh;justify-content:center;padding:30px}@media screen and (min-width:576px){#login-form{padding:80px}}@media screen and (min-width:768px){#login-form{background:#1c1c1d;height:auto;left:50%;padding:80px 65px;position:absolute;top:50%;transform:translate(-50%,-50%);width:55%}}@media screen and (min-width:992px){#login-form{max-width:450px;width:40%}}#login-form .content{margin:35px 0}#login-form .content .btn_remember_me{margin-top:12px}#login-form .content .btn_remember_me input{height:14px;width:14px}#login-form .content .btn_remember_me p{margin-left:10px}.form_footer{align-items:center;display:flex;justify-content:center;padding-top:30px;width:100%}.form_footer a{color:hsla(0,0%,100%,.6);display:block;font-size:12px;padding:0 10px}.form_footer a:first-of-type{border-right:1px solid hsla(0,0%,100%,.6)}
+@charset "UTF-8";
+/* ============= IMPORT ============= */
+/* ============= PLACEHOLDERS ============= */
+#login-form .content .btn_remember_me {
+  display: flex;
+  align-items: center;
+}
 
-/*# sourceMappingURL=login.css.map*/
+/* ============= MIXINS ============= */
+/* ============= VARIABLES ============= */
+/* ========== COLORS ========== */
+/* ========== Fonts ========== */
+/* ========== Font-size ========== */
+/* ========== HEIGHT NAVBAR ========== */
+/* ========== PADDING ========== */
+/* ========== MARGIN ========== */
+/* ========== TRANSITION ========== */
+/* ============= GÉNÉRAL ============= */
+main {
+  width: 100%;
+  min-height: 100vh;
+  padding: 0;
+}
+
+/* ============= FORM ============= */
+#login-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100vh;
+  padding: 30px;
+}
+@media screen and (min-width: 576px) {
+  #login-form {
+    padding: 80px;
+  }
+}
+@media screen and (min-width: 768px) {
+  #login-form {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 55%;
+    height: auto;
+    padding: 80px 65px;
+    background: #1C1C1D;
+  }
+}
+@media screen and (min-width: 992px) {
+  #login-form {
+    width: 40%;
+    max-width: 450px;
+  }
+}
+#login-form .content {
+  margin: 35px 0;
+}
+#login-form .content .btn_remember_me {
+  margin-top: 12px;
+}
+#login-form .content .btn_remember_me input {
+  width: 14px;
+  height: 14px;
+}
+#login-form .content .btn_remember_me p {
+  margin-left: 10px;
+}
+
+/* ============= FORM FOOTER ============= */
+.form_footer {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 30px;
+}
+.form_footer a {
+  padding: 0 10px;
+  display: block;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.6);
+}
+.form_footer a:nth-of-type(1) {
+  border-right: 1px solid rgba(255, 255, 255, 0.6);
+}
