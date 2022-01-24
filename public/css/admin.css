@@ -1,0 +1,238 @@
+@charset "UTF-8";
+/* ============= IMPORT ============= */
+/* ============= PLACEHOLDERS ============= */
+#admin-container .container_block_content .footer_btn, #admin-container .container_block_content .slide_list .slide_item .slide_tools, #admin-container .container_block table .tab_tools, .sidebar .btn_deconnexion a, .sidebar_list .sidebar_item .sidebar_link, .sidebar_brand {
+  display: flex;
+  align-items: center;
+}
+
+/* ============= MIXINS ============= */
+/* ============= VARIABLES ============= */
+/* ========== COLORS ========== */
+/* ========== Fonts ========== */
+/* ========== Font-size ========== */
+/* ========== HEIGHT NAVBAR ========== */
+/* ========== PADDING ========== */
+/* ========== MARGIN ========== */
+/* ========== TRANSITION ========== */
+/* ============= GÉNÉRAL ============= */
+/* ============= MAIN ============= */
+main {
+  padding: 0;
+  display: flex;
+}
+
+/* ============= SIDEBAR ============= */
+.sidebar {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  width: 230px;
+  height: 100vh;
+  background: #1C1C1D;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+}
+.sidebar_brand {
+  width: 100%;
+  padding: 20px;
+}
+.sidebar_brand .img_container {
+  width: 30px;
+  height: 30px;
+  background: #46464C;
+  border-radius: 50%;
+}
+.sidebar_brand p {
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-left: 20px;
+}
+.sidebar_list {
+  width: 100%;
+}
+.sidebar_list .sidebar_item .sidebar_link {
+  width: 100%;
+  padding: 20px;
+  color: rgba(255, 255, 255, 0.6);
+}
+.sidebar_list .sidebar_item .sidebar_link .bx {
+  font-size: 30px;
+}
+.sidebar_list .sidebar_item .sidebar_link span {
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-left: 20px;
+}
+.sidebar_list .sidebar_item .sidebar_link.active_link {
+  background: #46464C;
+  color: rgba(255, 255, 255, 0.8);
+}
+.sidebar_list .sidebar_item .sidebar_link:not(.active_link):hover {
+  background: rgba(70, 70, 76, 0.7);
+}
+.sidebar .btn_deconnexion {
+  width: 100%;
+  padding: 20px;
+}
+.sidebar .btn_deconnexion a {
+  width: 100%;
+  color: rgba(255, 255, 255, 0.6);
+}
+.sidebar .btn_deconnexion a .bx {
+  font-size: 30px;
+}
+.sidebar .btn_deconnexion a span {
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-left: 20px;
+}
+.sidebar .btn_deconnexion:hover {
+  background: #46464C;
+}
+
+/* ============= ADMIN CONTAINER ============= */
+#admin-container .title_container {
+  margin-bottom: 20px;
+  color: rgba(255, 255, 255, 0.6);
+}
+#admin-container .half_block {
+  width: calc(50% - 20px);
+  max-width: 250px;
+  padding: 20px;
+}
+#admin-container .half_block h2 {
+  margin-bottom: 10px;
+  font-size: 16px;
+  font-weight: 400;
+}
+#admin-container .half_block .nb_msg {
+  font-size: 28px;
+  font-weight: bold;
+}
+#admin-container .container_block {
+  margin-bottom: 25px;
+  background: #1C1C1D;
+  box-shadow: 0px 5px 20px rgba(28, 28, 29, 0.5);
+}
+#admin-container .container_block table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: center;
+}
+#admin-container .container_block table thead {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+#admin-container .container_block table thead th {
+  font-weight: normal;
+}
+#admin-container .container_block table th,
+#admin-container .container_block table td {
+  overflow: hidden;
+  padding: 15px;
+}
+#admin-container .container_block table th:nth-of-type(3),
+#admin-container .container_block table td:nth-of-type(3) {
+  width: 120px;
+}
+#admin-container .container_block table .tab_tools .bx {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #46464C;
+  border-radius: 5px;
+  margin-left: auto;
+  margin-right: 0;
+}
+#admin-container .container_block table .tab_tools .bx:nth-of-type(2) {
+  margin-left: 10px;
+}
+#admin-container .container_block_title {
+  padding: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+#admin-container .container_block_content {
+  padding: 20px;
+}
+#admin-container .container_block_content .slide_list .slide_item {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #313138;
+}
+#admin-container .container_block_content .slide_list .slide_item:not(:last-child) {
+  border-bottom: 1px solid #1C1C1D;
+}
+#admin-container .container_block_content .slide_list .slide_item:last-child {
+  margin-bottom: 20px;
+}
+#admin-container .container_block_content .slide_list .slide_item .img_container {
+  width: 150px;
+  height: 75px;
+  background: #46464C;
+}
+#admin-container .container_block_content .slide_list .slide_item .slide_tools .bx {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 15px;
+  background: #46464C;
+  border-radius: 5px;
+}
+#admin-container .container_block_content .create_new_slide_container,
+#admin-container .container_block_content .create_new_actus_container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 20px;
+  margin-bottom: 20px;
+  background: #313138;
+}
+#admin-container .container_block_content .create_new_slide_container .bx,
+#admin-container .container_block_content .create_new_actus_container .bx {
+  margin-right: 10px;
+}
+#admin-container .container_block_content .footer_btn .add_new_slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px 20px;
+  background: #46464C;
+  border-radius: 30px;
+}
+#admin-container .container_block_content .footer_btn .add_new_slide .bx {
+  font-size: 16px;
+  margin-right: 10px;
+}
+#admin-container .container_block_content .footer_btn button[type=submit] {
+  padding: 15px 20px;
+  border-radius: 30px;
+  margin-right: 10px;
+  font-size: 16px;
+}
+#admin-container .container_block form input[type=text],
+#admin-container .container_block form textarea {
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 20px;
+  background: #313138;
+}
+#admin-container .container_block form textarea {
+  resize: none;
+}
+#admin-container .container_block input[type=file] {
+  display: none;
+}

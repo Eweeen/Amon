@@ -1,4 +1,5 @@
 
+<link href="<?php echo e(asset('css/forgetPass.css')); ?>" rel="stylesheet">
 <?php if (isset($component)) { $__componentOriginalc3251b308c33b100480ddc8862d4f9c79f6df015 = $component; } ?>
 <?php $component = $__env->getContainer()->make(App\View\Components\GuestLayout::class, []); ?>
 <?php $component->withName('guest-layout'); ?>
@@ -13,9 +14,6 @@
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
 <?php $component->withAttributes([]); ?>
 
-         <?php $__env->slot('style', null, []); ?> 
-            <link href="<?php echo e(asset('css/forgetPass.css')); ?>" rel="stylesheet">
-         <?php $__env->endSlot(); ?>
          <?php $__env->slot('logo', null, []); ?> 
             <a href="/">
                 <?php if (isset($component)) { $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4 = $component; } ?>
@@ -85,7 +83,7 @@
 <?php $component->withName('button'); ?>
 <?php if ($component->shouldRender()): ?>
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
-<?php $component->withAttributes([]); ?><?php echo e(__('Email Password Reset Link')); ?> <?php echo $__env->renderComponent(); ?>
+<?php $component->withAttributes([]); ?><?php echo e(__('Valider')); ?> <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
 <?php if (isset($__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4)): ?>
 <?php $component = $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4; ?>

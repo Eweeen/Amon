@@ -1,0 +1,237 @@
+/* ============= IMPORT ============= */
+
+@import 'variables';
+
+/* ============= GÉNÉRAL ============= */
+
+
+/* ============= MAIN ============= */
+
+main {
+    padding: 0;
+    display: flex;
+}
+
+
+/* ============= SIDEBAR ============= */
+
+.sidebar {
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    width: 230px;
+    height: 100vh;
+    background: $grey-1;
+    @include flex-justify-content(space-between);
+    flex-direction: column;
+    &_brand {
+        width: 100%;
+        @extend %flex;
+        padding: $p-4;
+        .img_container {
+            width: 30px;
+            height: 30px;
+            background: $grey-3;
+            border-radius: 50%;
+        }
+        p {
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-left: $m-4;
+        }
+    }
+    &_list {
+        width: 100%;
+        .sidebar_item {
+            .sidebar_link {
+                width: 100%;
+                padding: $p-4;
+                @extend %flex;
+                color: $white-2;
+                .bx {
+                    font-size: 30px;
+                }
+                span {
+                    letter-spacing: 1px;
+                    text-transform: uppercase;
+                    margin-left: $m-4;
+                }
+                &.active_link {
+                    background: $grey-3;
+                    color: $white-1;
+                }
+                &:not(.active_link):hover {
+                    background: rgba($color: $grey-3, $alpha: 0.7);
+                }
+            }
+        }
+    }
+    .btn_deconnexion {
+        width: 100%;
+        padding: $p-4;
+        a {
+            width: 100%;
+            @extend %flex;
+            color: $white-2;
+            .bx {
+                font-size: 30px;
+            }
+            span {
+                letter-spacing: 1px;
+                text-transform: uppercase;
+                margin-left: $m-4;
+            }
+        }
+        &:hover {
+            background: $grey-3;
+        }
+    }
+}
+
+
+/* ============= ADMIN CONTAINER ============= */
+
+#admin-container {
+    .title_container {
+        margin-bottom: $m-4;
+        color: $white-2;
+    }
+    .half_block {
+        width: calc(50% - $p-4);
+        max-width: 250px;
+        padding: $p-4;
+        h2 {
+            margin-bottom: $m-2;
+            font-size: $f-3;
+            font-weight: 400;
+        }
+        .nb_msg {
+            font-size: $f-1;
+            font-weight: bold;
+        }
+    }
+    .container_block {
+        margin-bottom: $m-5;
+        background: $grey-1;
+        box-shadow: 0px 5px 20px rgba($color: $grey-1, $alpha: 0.5);
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: center;
+            thead {
+                border-bottom: 1px solid $white-3;
+                th {
+                    font-weight: normal;
+                }
+            }
+            th,
+            td {
+                overflow: hidden;
+                padding: $p-3;
+                &:nth-of-type(3) {
+                    width: 120px
+                }
+            }
+            .tab_tools {
+                @extend %flex;
+                .bx {
+                    width: 40px;
+                    height: 40px;
+                    @include flex-justify-content(center);
+                    background: $grey-3;
+                    border-radius: 5px;
+                    &:nth-of-type(2) {
+                        margin-left: $m-2;
+                    }
+                    margin-left: auto;
+                    margin-right: 0;
+                }
+            }
+        }
+        &_title {
+            padding: $p-4;
+            border-bottom: 1px solid $white-3;
+        }
+        &_content {
+            padding: $p-4;
+            .slide_list {
+                .slide_item {
+                    user-select: none;
+                    @include flex-justify-content(space-between);
+                    background: $grey-2;
+                    &:not(:last-child) {
+                        border-bottom: 1px solid $grey-1;
+                    }
+                    &:last-child {
+                        margin-bottom: $m-4;
+                    }
+                    .img_container {
+                        width: 150px;
+                        height: 75px;
+                        background: $grey-3;
+                    }
+                    .slide_tools {
+                        @extend %flex;
+                        .bx {
+                            width: 40px;
+                            height: 40px;
+                            @include flex-justify-content(center);
+                            margin-right: $m-3;
+                            background: $grey-3;
+                            border-radius: 5px;
+                        }
+                    }
+                }
+            }
+            .create_new_slide,
+            .create_new_actus {
+                $width: 100%;
+                &_container {
+                    @include flex-justify-content(center);
+                    width: 100%;
+                    padding: $p-4;
+                    margin-bottom: $m-4;
+                    background: $grey-2;
+                    .bx {
+                        margin-right: $m-2;
+                    }
+                }
+            }
+            .footer_btn {
+                @extend %flex;
+                .add_new_slide {
+                    @include flex-justify-content(center);
+                    padding: $p-3 $p-4;
+                    background: $grey-3;
+                    border-radius: 30px;
+                    .bx {
+                        font-size: $f-3;
+                        margin-right: $m-2;
+                    }
+                }
+                button[type="submit"] {
+                    padding: $p-3 $p-4;
+                    border-radius: 30px;
+                    margin-right: $m-2;
+                    font-size: $f-3;
+                }
+            }
+        }
+        form {
+            input[type="text"],
+            textarea {
+                width: 100%;
+                margin-bottom: $m-4;
+                padding: $p-4;
+                background: $grey-2;
+            }
+            textarea {
+                resize: none;
+            }
+        }
+        input[type="file"] {
+            display: none;
+        }
+    }
+}

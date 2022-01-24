@@ -84,6 +84,7 @@ button {
 /* ============= MAIN ============= */
 main {
   padding-top: 80px;
+  min-height: 100vh;
 }
 
 /* ============= SECTIONS ============= */
@@ -106,7 +107,8 @@ section .container {
 }
 @media screen and (min-width: 1200px) {
   section .container {
-    padding: 30px 200px;
+    max-width: 1200px;
+    margin: 0 auto;
   }
 }
 

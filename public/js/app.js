@@ -74,6 +74,39 @@ eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extr
 
 /***/ }),
 
+/***/ "./resources/sass/admin.scss":
+/*!***********************************!*\
+  !*** ./resources/sass/admin.scss ***!
+  \***********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9yZXNvdXJjZXMvc2Fzcy9hZG1pbi5zY3NzLmpzIiwibWFwcGluZ3MiOiI7QUFBQSIsInNvdXJjZXMiOlsid2VicGFjazovLy8uL3Jlc291cmNlcy9zYXNzL2FkbWluLnNjc3M/OGYyMiJdLCJzb3VyY2VzQ29udGVudCI6WyIvLyBleHRyYWN0ZWQgYnkgbWluaS1jc3MtZXh0cmFjdC1wbHVnaW5cbmV4cG9ydCB7fTsiXSwibmFtZXMiOltdLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///./resources/sass/admin.scss\n");
+
+/***/ }),
+
+/***/ "./resources/sass/article.scss":
+/*!*************************************!*\
+  !*** ./resources/sass/article.scss ***!
+  \*************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9yZXNvdXJjZXMvc2Fzcy9hcnRpY2xlLnNjc3MuanMiLCJtYXBwaW5ncyI6IjtBQUFBIiwic291cmNlcyI6WyJ3ZWJwYWNrOi8vLy4vcmVzb3VyY2VzL3Nhc3MvYXJ0aWNsZS5zY3NzPzVlMzgiXSwic291cmNlc0NvbnRlbnQiOlsiLy8gZXh0cmFjdGVkIGJ5IG1pbmktY3NzLWV4dHJhY3QtcGx1Z2luXG5leHBvcnQge307Il0sIm5hbWVzIjpbXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///./resources/sass/article.scss\n");
+
+/***/ }),
+
+/***/ "./resources/sass/articles.scss":
+/*!**************************************!*\
+  !*** ./resources/sass/articles.scss ***!
+  \**************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9yZXNvdXJjZXMvc2Fzcy9hcnRpY2xlcy5zY3NzLmpzIiwibWFwcGluZ3MiOiI7QUFBQSIsInNvdXJjZXMiOlsid2VicGFjazovLy8uL3Jlc291cmNlcy9zYXNzL2FydGljbGVzLnNjc3M/NmUyMSJdLCJzb3VyY2VzQ29udGVudCI6WyIvLyBleHRyYWN0ZWQgYnkgbWluaS1jc3MtZXh0cmFjdC1wbHVnaW5cbmV4cG9ydCB7fTsiXSwibmFtZXMiOltdLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///./resources/sass/articles.scss\n");
+
+/***/ }),
+
 /***/ "./resources/sass/app.scss":
 /*!*********************************!*\
   !*** ./resources/sass/app.scss ***!
@@ -221,6 +254,9 @@ eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extr
 /******/ 			"css/forgetPass": 0,
 /******/ 			"css/chat": 0,
 /******/ 			"css/index": 0,
+/******/ 			"css/articles": 0,
+/******/ 			"css/article": 0,
+/******/ 			"css/admin": 0,
 /******/ 			"css/compte": 0,
 /******/ 			"css/team": 0,
 /******/ 			"css/register": 0,
@@ -275,17 +311,20 @@ eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extr
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	__webpack_require__.O(undefined, ["css/app","css/form","css/forgetPass","css/chat","css/index","css/compte","css/team","css/register","css/profil","css/login"], () => (__webpack_require__("./resources/js/app.js")))
-/******/ 	__webpack_require__.O(undefined, ["css/app","css/form","css/forgetPass","css/chat","css/index","css/compte","css/team","css/register","css/profil","css/login"], () => (__webpack_require__("./resources/sass/app.scss")))
-/******/ 	__webpack_require__.O(undefined, ["css/app","css/form","css/forgetPass","css/chat","css/index","css/compte","css/team","css/register","css/profil","css/login"], () => (__webpack_require__("./resources/sass/index.scss")))
-/******/ 	__webpack_require__.O(undefined, ["css/app","css/form","css/forgetPass","css/chat","css/index","css/compte","css/team","css/register","css/profil","css/login"], () => (__webpack_require__("./resources/sass/chat.scss")))
-/******/ 	__webpack_require__.O(undefined, ["css/app","css/form","css/forgetPass","css/chat","css/index","css/compte","css/team","css/register","css/profil","css/login"], () => (__webpack_require__("./resources/sass/forgetPass.scss")))
-/******/ 	__webpack_require__.O(undefined, ["css/app","css/form","css/forgetPass","css/chat","css/index","css/compte","css/team","css/register","css/profil","css/login"], () => (__webpack_require__("./resources/sass/form.scss")))
-/******/ 	__webpack_require__.O(undefined, ["css/app","css/form","css/forgetPass","css/chat","css/index","css/compte","css/team","css/register","css/profil","css/login"], () => (__webpack_require__("./resources/sass/login.scss")))
-/******/ 	__webpack_require__.O(undefined, ["css/app","css/form","css/forgetPass","css/chat","css/index","css/compte","css/team","css/register","css/profil","css/login"], () => (__webpack_require__("./resources/sass/profil.scss")))
-/******/ 	__webpack_require__.O(undefined, ["css/app","css/form","css/forgetPass","css/chat","css/index","css/compte","css/team","css/register","css/profil","css/login"], () => (__webpack_require__("./resources/sass/register.scss")))
-/******/ 	__webpack_require__.O(undefined, ["css/app","css/form","css/forgetPass","css/chat","css/index","css/compte","css/team","css/register","css/profil","css/login"], () => (__webpack_require__("./resources/sass/team.scss")))
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/app","css/form","css/forgetPass","css/chat","css/index","css/compte","css/team","css/register","css/profil","css/login"], () => (__webpack_require__("./resources/sass/compte.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/app","css/form","css/forgetPass","css/chat","css/index","css/articles","css/article","css/admin","css/compte","css/team","css/register","css/profil","css/login"], () => (__webpack_require__("./resources/js/app.js")))
+/******/ 	__webpack_require__.O(undefined, ["css/app","css/form","css/forgetPass","css/chat","css/index","css/articles","css/article","css/admin","css/compte","css/team","css/register","css/profil","css/login"], () => (__webpack_require__("./resources/sass/app.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/app","css/form","css/forgetPass","css/chat","css/index","css/articles","css/article","css/admin","css/compte","css/team","css/register","css/profil","css/login"], () => (__webpack_require__("./resources/sass/index.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/app","css/form","css/forgetPass","css/chat","css/index","css/articles","css/article","css/admin","css/compte","css/team","css/register","css/profil","css/login"], () => (__webpack_require__("./resources/sass/chat.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/app","css/form","css/forgetPass","css/chat","css/index","css/articles","css/article","css/admin","css/compte","css/team","css/register","css/profil","css/login"], () => (__webpack_require__("./resources/sass/forgetPass.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/app","css/form","css/forgetPass","css/chat","css/index","css/articles","css/article","css/admin","css/compte","css/team","css/register","css/profil","css/login"], () => (__webpack_require__("./resources/sass/form.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/app","css/form","css/forgetPass","css/chat","css/index","css/articles","css/article","css/admin","css/compte","css/team","css/register","css/profil","css/login"], () => (__webpack_require__("./resources/sass/login.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/app","css/form","css/forgetPass","css/chat","css/index","css/articles","css/article","css/admin","css/compte","css/team","css/register","css/profil","css/login"], () => (__webpack_require__("./resources/sass/profil.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/app","css/form","css/forgetPass","css/chat","css/index","css/articles","css/article","css/admin","css/compte","css/team","css/register","css/profil","css/login"], () => (__webpack_require__("./resources/sass/register.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/app","css/form","css/forgetPass","css/chat","css/index","css/articles","css/article","css/admin","css/compte","css/team","css/register","css/profil","css/login"], () => (__webpack_require__("./resources/sass/team.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/app","css/form","css/forgetPass","css/chat","css/index","css/articles","css/article","css/admin","css/compte","css/team","css/register","css/profil","css/login"], () => (__webpack_require__("./resources/sass/compte.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/app","css/form","css/forgetPass","css/chat","css/index","css/articles","css/article","css/admin","css/compte","css/team","css/register","css/profil","css/login"], () => (__webpack_require__("./resources/sass/admin.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/app","css/form","css/forgetPass","css/chat","css/index","css/articles","css/article","css/admin","css/compte","css/team","css/register","css/profil","css/login"], () => (__webpack_require__("./resources/sass/article.scss")))
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/app","css/form","css/forgetPass","css/chat","css/index","css/articles","css/article","css/admin","css/compte","css/team","css/register","css/profil","css/login"], () => (__webpack_require__("./resources/sass/articles.scss")))
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()

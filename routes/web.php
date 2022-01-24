@@ -33,6 +33,10 @@ Route::get('/competition', [AmonController::class, 'competition'])->name('compet
 Route::get('/chat', '\App\Http\Controllers\ChatController@chat')->name('chat');
 Route::get('/profil/{id}', [AmonController::class, 'profil'])->name('profil');
 Route::get('/profil', [AmonController::class, 'profilNotFound'])->name('profilNotFound');
+Route::get('/admin', [AmonController::class, 'admin'])->name('admin');
+
+Route::get('/articles', [AmonController::class, 'articles'])->name('articles');
+Route::get('/article', [AmonController::class, 'article'])->name('article');
 
 // Route::get('/login', [AmonController::class, 'login'])->name('login');
 // Route::get('/register', [AmonController::class, 'register'])->name('register');

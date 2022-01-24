@@ -1,14 +1,10 @@
-
+<link href="{{ asset('css/forgetPass.css') }}" rel="stylesheet">
 <x-guest-layout>
-    
     <x-auth-card>
 
-        <x-slot name="style">
-            <link href="{{ asset('css/forgetPass.css') }}" rel="stylesheet">
-        </x-slot>
         <x-slot name="logo">
             <a href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
+                <x-application-logo/>
             </a>
         </x-slot>
 
@@ -26,7 +22,7 @@
                 <!-- Email Address -->
                 <x-input id="email" type="email" name="email" placeholder="Entrez l'email du compte" :value="old('email')" required autofocus />
                 
-                <x-button>{{ __('Email Password Reset Link') }}</x-button>
+                <x-button>{{ __('Valider') }}</x-button>
 
             </form>
         </section>

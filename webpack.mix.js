@@ -27,4 +27,7 @@ mix.js('resources/js/app.js', 'public/js')
     .sass('resources/sass/register.scss', 'public/css')
     .sass('resources/sass/team.scss', 'public/css')
     .sass('resources/sass/compte.scss', 'public/css')
+    .sass('resources/sass/admin.scss', 'public/css')
+    .sass('resources/sass/article.scss', 'public/css')
+    .sass('resources/sass/articles.scss', 'public/css')
     .sourceMaps();

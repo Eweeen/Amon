@@ -7,7 +7,9 @@
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection("content"); ?> 
-
+    <main>
+        
+    </main>
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection("script"); ?>
