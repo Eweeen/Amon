@@ -10,7 +10,7 @@
 .articles_list {
     .article_item {
         .article_link {
-            min-height: 150px;
+            height: 140px;
             @include tablet {
                 display: flex;
                 align-items: center;

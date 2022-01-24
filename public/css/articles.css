@@ -13,7 +13,7 @@
 /* ============= GÉNÉRAL =============  */
 /* ============= SECTION LIST ARTICLES =============  */
 .articles_list .article_item .article_link {
-  min-height: 150px;
+  height: 140px;
 }
 @media screen and (min-width: 768px) {
   .articles_list .article_item .article_link {

@@ -14,46 +14,51 @@
                 <div class="img_container">
                     <img src="<?php echo e(asset('img/'.$user->img_profil)); ?>" alt="<?php echo e($user->pseudo); ?>">
                 </div>
-                <div class="profil_about_user container">
-                    <div class="profil_description">
-                        <ul class="social_list">
-                            <?php if($user->twitch): ?>
-                            <li class="social_item">
-                                <a href="https://www.twitch.tv/<?php echo e($user->twitch); ?>" target="_blank">
-                                    <i class='bx bxl-twitch'></i>
-                                    <span></span>
-                                </a>
-                            </li>
-                            <?php endif; ?>
-                            <?php if($user->twitter): ?>
-                            <li class="social_item">
-                                <a href="https://twitter.com/<?php echo e($user->twitter); ?>" target="_blank">
-                                    <i class='bx bxl-twitter'></i>
-                                    <span></span>
-                                </a>
-                            </li>
-                            <?php endif; ?>
-                            <?php if($user->instagram): ?>
-                            <li class="social_item">
-                                <a href="https://www.instagram.com/<?php echo e($user->instagram); ?>" target="_blank">
-                                    <i class='bx bxl-instagram' ></i>
-                                    <span></span>
-                                </a>
-                            </li>
-                            <?php endif; ?>
-                        </ul>
+                <div class="profil_pseudo">
+                    <h2><?php echo e($user->pseudo); ?></h2>
+                </div>
+            </div>
+            <div class="profil_about_user container">
+                <div class="profil_description">
+                    <ul class="social_list">
+                        <?php if($user->twitch): ?>
+                        <li class="social_item">
+                            <a href="https://www.twitch.tv/<?php echo e($user->twitch); ?>" target="_blank">
+                                <i class='bx bxl-twitch'></i>
+                                <span><?php echo e($user->twitch); ?></span>
+                            </a>
+                        </li>
+                        <?php endif; ?>
+                        <?php if($user->twitter): ?>
+                        <li class="social_item">
+                            <a href="https://twitter.com/<?php echo e($user->twitter); ?>" target="_blank">
+                                <i class='bx bxl-twitter'></i>
+                                <span><?php echo e($user->twitter); ?></span>
+                            </a>
+                        </li>
+                        <?php endif; ?>
+                        <?php if($user->instagram): ?>
+                        <li class="social_item">
+                            <a href="https://www.instagram.com/<?php echo e($user->instagram); ?>" target="_blank">
+                                <i class='bx bxl-instagram' ></i>
+                                <span><?php echo e($user->instagram); ?></span>
+                            </a>
+                        </li>
+                        <?php endif; ?>
+                    </ul>
+                    <?php if($user->description): ?>
                         <div class="description_profil">
                             <p><?php echo e($user->description); ?></p>
                         </div>
-                    </div>
-                    <?php if(auth()->guard()->check()): ?>
-                    <?php if($user->admin === 0): ?>
-                    <div class="profil_btn">
-                        <a href="">Envoyer un message</a>
-                    </div>
-                    <?php endif; ?>
                     <?php endif; ?>
                 </div>
+                <?php if(auth()->guard()->check()): ?>
+                <?php if($user->admin === 0): ?>
+                <div class="btn_send_msg">
+                    <a href="">Envoyer un message</a>
+                </div>
+                <?php endif; ?>
+                <?php endif; ?>
             </div>
         </section>
    </main>

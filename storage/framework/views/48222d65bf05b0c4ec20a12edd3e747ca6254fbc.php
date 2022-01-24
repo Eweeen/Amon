@@ -9,7 +9,7 @@
     <!-- TITLE -->
     <title>AMON</title>
     <!-- FAVICON -->
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="<?php echo e(asset('img/logo.png')); ?>" type="image/x-icon">
     <!-- CSS -->
     <link href="<?php echo e(asset('css/app.css')); ?>" rel="stylesheet">
     <?php echo $__env->yieldContent('styles'); ?>

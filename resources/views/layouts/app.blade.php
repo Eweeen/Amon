@@ -9,7 +9,7 @@
     <!-- TITLE -->
     <title>AMON</title>
     <!-- FAVICON -->
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="{{ asset('img/logo.png') }}" type="image/x-icon">
     <!-- CSS -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     @yield('styles')
