@@ -41,13 +41,13 @@
                 </div>
 
                 <div class="container_half_block">
-                    <a href="{{ route('admin') }}" class="container_block half_block">
-                        <i class='bx bx-news'></i>
-                        <span>Nouveau membre</span>
-                    </a>
-                    <a href="{{ route('admin') }}" class="container_block half_block">
+                    <a href="{{ route('actus') }}" class="container_block half_block">
                         <i class='bx bx-user-plus' ></i>
                         <span>Nouvelle actualité</span>
+                    </a>
+                    <a href="{{ route('team') }}" class="container_block half_block">
+                        <i class='bx bx-news'></i>
+                        <span>Nouveau membre</span>
                     </a>
                 </div>
 

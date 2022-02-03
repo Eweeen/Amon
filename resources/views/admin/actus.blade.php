@@ -56,6 +56,8 @@
                             </div>
                             <input type="text" name="" id="" placeholder="Titre de l'article">
                             <textarea name="" id="" cols="30" rows="10" placeholder="Contenu de l'article"></textarea>
+
+                            <button type="submit" class="btn">Créer</button>
                         </form>
                     </div>
                 </div>
@@ -74,7 +76,6 @@
                                 <td>-</td>
                                 <td>-</td>
                                 <td class="tab_tools">
-                                    <i class='bx btn bx-edit'></i>
                                     <i class='bx btn bx-trash'></i>
                                 </td>
                             </tr>

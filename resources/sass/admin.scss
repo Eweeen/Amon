@@ -145,8 +145,7 @@ main {
                     &:nth-of-type(2) {
                         margin-left: $m-2;
                     }
-                    margin-left: auto;
-                    margin-right: 0;
+                    margin: 0 auto
                 }
             }
             .tab_tools {
@@ -233,9 +232,12 @@ main {
                     margin-left: $m-4;
                 }
             }
+            h3 {
+                margin-bottom: $m-2;
+            }
             .social_fields {
                 @extend %flex;
-                margin-top: $m-4;
+                margin-bottom: $m-4;
                 .bx {
                     width: 59px;
                     height: 59px;
@@ -256,6 +258,13 @@ main {
             }
             textarea {
                 resize: none;
+            }
+            button[type="submit"] {
+                min-width: 100px;
+                padding: $p-3 $p-4;
+                border-radius: 30px;
+                margin-right: $m-2;
+                font-size: $f-3;
             }
         }
         input[type="file"] {

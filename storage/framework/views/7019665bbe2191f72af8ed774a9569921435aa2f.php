@@ -81,6 +81,8 @@
                                 <i class='bx bxl-twitch' ></i>
                                 <input type="text" name="" id="" placeholder="id twitch">
                             </div>
+
+                            <button type="submit" class="btn">Ajouter</button>
                         </form>
                     </div>
                 </div>
@@ -97,7 +99,6 @@
                             <tr>
                                 <td>-</td>
                                 <td class="tab_tools">
-                                    <i class='bx btn bx-edit'></i>
                                     <i class='bx btn bx-trash'></i>
                                 </td>
                             </tr>
