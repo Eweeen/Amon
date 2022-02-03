@@ -10,19 +10,29 @@
 .articles_list {
     .article_item {
         .article_link {
-            height: 140px;
+            display: block;
+            &:not(:first-of-type) {
+                margin-top: $m-4;
+            }
             @include tablet {
                 display: flex;
                 align-items: center;
+                height: 140px;
             }
             .img_container {
                 width: 100%;
-                height: 100%;
+                height: 140px;
                 background: $grey-3;
+                @include tablet {
+                    width: 250px;
+                }
             }
             .article_infos {
                 padding: $p-4;
                 background: $grey-1;
+                @include tablet {
+                    width: calc(100% - 250px);
+                }
                 h2 {
                     height: 24px;
                     overflow: hidden;

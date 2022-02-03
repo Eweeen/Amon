@@ -111,7 +111,7 @@
                     <div class="modal_bg">
                         <div class="modal_settings_chat">
                             <span class="close_modal"><i class='bx bx-x'></i>Fermer</span>
-                            <span class="delete_conversation"><i class='bx bx-trash-alt'></i>Supprimer</span>
+                            <span class="delete_conversation"><i class='bx bx-trash-alt'></i>Supprimer la conversation</span>
                         </div>
                     </div>
                 </div>
@@ -123,9 +123,9 @@
                         <img src="<?php echo e(asset('img/default_user.png')); ?>">
                     </div>
                     <div class="msg_container">
-                        <div class="msg_pseudo">BenjaminDrn</div>
+                        <div class="msg_pseudo">Ewen</div>
                         <div class="msg_content">
-                            <p data-id-msg="0001">Sucer c bien</p>
+                            <p data-id-msg="0001">Lorem ipsum dolor sit amet consectetur adipisicing elit. Est saepe fugit facere dolores facilis ab eligendi obcaecati illum, dolor illo odio quo vel, nobis aperiam nemo molestiae, dolorem aliquid aspernatur!</p>
                             <div class="modal_container">
                                 <div class="btn btn_dot">
                                     <i class="bx bx-dots-vertical-rounded"></i>
@@ -149,7 +149,7 @@
                     <div class="msg_container">
                         <div class="msg_pseudo">BenjaminDrn</div>
                         <div class="msg_content">
-                            <p data-id-msg="000">Je suis un bg (benjamin)</p>
+                            <p data-id-msg="000">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolor, libero? Pariatur consequuntur beatae quas perspiciatis saepe! Incidunt dolorem fuga rem tempora! Excepturi sapiente deserunt corrupti quae eius itaque, nostrum sunt.</p>
                             <div class="modal_container">
                                 <div class="btn btn_dot">
                                     <i class="bx bx-dots-vertical-rounded"></i>
@@ -178,7 +178,7 @@
                 <div class="chat_bar_login">
                     <div class="login_msg">
                         <i class="bx bx-lock-alt"></i>
-                        <p>Connectez-vous pour envoyer des messages</p>
+                        <p>Envoyer un message </p>
                     </div>
                     <a href="<?php echo e(route('login')); ?>"><button>Connexion</button></a>
                 </div>

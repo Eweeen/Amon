@@ -40,7 +40,9 @@
                 <div class="profils_card_list">
 
                     <div class="profil_card" data-aos="zoom-in-up" data-aos-delay="100">
-                        <img src="../app/data/users/default_user.png" alt="">
+                        <div class="img_container">
+                            <img src="<?php echo e(asset('img/default_user.png')); ?>" alt="">
+                        </div>
                         <div class="profil_card_infos">
                             <h3>Pseudo</h3>
                             <p>Place occupée</p>
@@ -64,7 +66,9 @@
                 <div class="profils_card_list">
 
                     <div class="profil_card" data-aos="zoom-in-up" data-aos-delay="100">
-                        <img src="../app/data/users/default_user.png" alt="">
+                        <div class="img_container">
+                            <img src="<?php echo e(asset('img/default_user.png')); ?>" alt="">
+                        </div>
                         <div class="profil_card_infos">
                             <h3>Pseudo</h3>
                             <p>Place occupée</p>

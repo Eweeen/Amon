@@ -159,9 +159,9 @@ input:-webkit-autofill:focus {
                     .conv_name {
                         font-size: 19px;
                         font-weight: 500;
-                        margin-bottom: $m-1;
                     }
                     .conv_last_msg {
+                        margin-top: $m-1;
                         font-size: 13px;
                         line-height: 20px;
                         height: 20px;
@@ -187,7 +187,7 @@ input:-webkit-autofill:focus {
     }
     .list_new_conv {
         position: absolute;
-        top: 70px;
+        top: 60px;
         left: 0;
         width: 100%;
         height: calc(100% - 70px);
@@ -258,7 +258,7 @@ input:-webkit-autofill:focus {
 #chat {
     position: absolute;
     top: $header-height;
-    left: -100%;
+    left: 0;
     width: 100%;
     height: calc(100vh - $header-height); //RESPONSIVE LAPTOP ? 
     overflow: hidden;
@@ -270,7 +270,7 @@ input:-webkit-autofill:focus {
     }
     .chat_infos {
         position: relative;
-        @extend %flex;
+        @include flex-justify-content(space-between);
         padding: 15px;
         background: $grey-1;
         @include laptop {
@@ -283,12 +283,11 @@ input:-webkit-autofill:focus {
         h1 {
             font-size: 20px;
             font-weight: 600;
-            padding-bottom: 2px;
         }
     }
     .chat_container {
         width: 100%;
-        height: calc(100% - 110px);
+        height: calc(100% - 120px);
         padding: 10px;
         overflow: scroll;
         @include laptop {
@@ -329,10 +328,10 @@ input:-webkit-autofill:focus {
                     @extend %flex;
                     p {
                         display: inline-block;
-                        max-width: 80%;
+                        max-width: 75%;
                         padding: 15px 15px 15px 15px;
                         background: rgba($color: $grey-1, $alpha: 0.7);
-                        line-height: 1;
+                        line-height: 20px;
                     }
                 }
             }
@@ -371,21 +370,22 @@ input:-webkit-autofill:focus {
         }
     }
     .chat_bar {
-        position: relative;
         width: 100%;
-        height: 50px;
+        height: 60px;
         background: $grey-2;
         overflow: hidden;
         @include laptop {
             height: 60px;
         }
         &_container {
+            position: relative;
+            width: 100%;
+            padding: 5px;
             @extend %flex;
             input {
                 width: 100%;
                 height: 40px;
-                padding: 0 50px 1px 20px;
-                margin: 0 5px 5px 5px;
+                padding: 0 50px 0 20px;
                 border-radius: 30px;
                 background: $grey-3;
                 &::placeholder {
@@ -393,40 +393,37 @@ input:-webkit-autofill:focus {
                 }
                 @include laptop {
                     height: 50px;
-                    padding: 0 50px 1px 25px;
-                    margin: 0 10px 10px 10px;
+                    padding: 0 50px 0 25px;
                 }
             }
             button {
                 position: absolute;
-                top: 3px;
-                right: 0;
-                margin: 0 5px 5px 5px;
+                top: 5px;
+                right: 5px;
                 padding: 10px;
                 border-radius: 50%;
                 background: $yellow;
                 color: $grey-1;
                 @include laptop {
-                    top: 0;
-                    right: 0;
-                    margin: 0 10px 10px 10px;
                     padding: 15px;
                 }
             }
         }
         &_login {
             height: 100%;
-            padding: 0 20px;
+            padding-left: 20px;
+            background: $grey-1;
+            border-left: 1px solid $grey-2;
             @include flex-justify-content(space-between);
             .login_msg {
                 @extend %flex;
                 p {
                     margin-left: $m-2;
                 }
-                a button {
-                    padding: 20px;
-                    font-size: 14px;
-                }
+            }
+            a button {
+                padding: 23px 30px;
+                font-size: 14px;
             }
         }
     }

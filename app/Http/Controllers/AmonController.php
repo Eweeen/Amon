@@ -55,8 +55,16 @@ class AmonController extends Controller
         return view('compte');
     }
 
-    public function admin(){
-        return view('adminview');
+    public function adminIndex(){
+        return view('admin.index');
+    }
+
+    public function adminActus(){
+        return view('admin.actus');
+    }
+
+    public function adminTeam(){
+        return view('admin.team');
     }
 
     public function articles(){

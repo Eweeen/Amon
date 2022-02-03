@@ -13,11 +13,14 @@ $(function() {
     });
 
     // show dropdown list in navigation bar 
-    $(".active_link").click(function(event) {
-        event.preventDefault();
-        if (window.innerWidth <= 992) {
-            $(this).next().toggleClass("active_dropdown");
-        }
+    $(".dropdown_nav_link").each(function() {
+        $(this).click(function(event) {
+            event.preventDefault();
+            if (window.innerWidth <= 992) {
+                $(this).next().toggleClass("active_dropdown");
+            }
+        })
     })
+
 
 });

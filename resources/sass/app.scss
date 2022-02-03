@@ -230,7 +230,7 @@ section {
                 }
                 a {
                     width: 100%;
-                    @include flex-justify-content(center);
+                    @include flex-justify-content(space-between);
                     font-size: 25px;
                     font-family: $montserrat;
                     font-weight: bold;
@@ -273,45 +273,41 @@ section {
                     }
                 }
                 .dropdown_list {
+                    width: 100%;
+                    margin-top: 10px;
                     display: none;
                     @include laptop {
                         display: block;
+                        width: 230px;
+                        margin: 0;
                         position: absolute;
                         top: 80px;
                         left: -20px;
-                        width: auto;
                         background: $grey-3;
                         opacity: 0;
                         visibility: hidden;
                     }
-                    .dropdown_link {
-                        position: relative;
-                        padding: $p-4;
-                        margin-top: 10px;
-                        font-size: 20px;
-                        text-transform: unset;
-                        font-weight: 300;
-                        @include laptop {
-                            font-size: 17px;
+                    .dropdown_item {
+                        width: 100%;
+                        .dropdown_link {
+                            position: relative;
+                            padding: $p-2 0;
+                            font-size: 20px;
+                            text-transform: unset;
                             font-weight: 300;
-                            margin: 0;
-                        }
-                        p {
-                            width: 190px;
-                        }
-                        .bx {
-                            padding: 0;
-                            margin-right: $m-1;
-                        }
-                        &:not(:last-child)::after {
-                            content: "";
-                            position: absolute;
-                            bottom: 0;
-                            left: 50%;
-                            transform: translateX(-50%);
-                            width: calc(100% - ($p-4 * 2));
-                            height: 1px;
-                            background: $white-3;
+                            @include laptop {
+                                font-size: 17px;
+                                font-weight: 300;
+                                margin: 0;
+                                padding: $p-3 $p-4;
+                            }
+                            p {
+                                width: 100%;
+                            }
+                            .bx {
+                                padding: 0;
+                                margin-right: $m-1;
+                            }
                         }
                     }
                 }
@@ -330,13 +326,14 @@ section {
                     }
                 }
             }
-            .nav_account {
-                @include laptop {
-                    p {
+            .nav_disconnected {
+                p {
+                    @include laptop {
                         display: none;
                     }
                 }
                 .bx {
+                    display: none;
                     @include laptop {
                         display: block;
                         background: $grey-3;
@@ -344,41 +341,52 @@ section {
                         border-radius: 50%;
                     }
                 }
+            }
+            .nav_connected {
+                // style when user is connected
                 .nav_account_phone {
                     @include laptop {
-                        p {
-                            display: none;
-                        }
+                        display: none;
                     }
                     .bx {
-                        @include laptop {
+                        font-size: 25px;
+                    }
+                }
+                .dropdown_list {
+                    .dropdown_item {
+                        .bx {
                             display: none;
+                            @include laptop {
+                                display: block;
+                            }
                         }
                     }
                 }
                 .nav_account_laptop {
-                    cursor: pointer;
-                    .btn_dropdown {
-                        width: 22px;
-                        height: 22px;
-                        @include flex-justify-content(center);
-                        position: absolute;
-                        bottom: 15px;
-                        right: -5px;
-                        background: $grey-2;
-                        border-radius: 50%;
-                        &::after {
-                            content: "";
+                    @include laptop {
+                        cursor: pointer;
+                        .btn_dropdown {
+                            width: 22px;
+                            height: 22px;
+                            @include flex-justify-content(center);
                             position: absolute;
-                            top: 9px;
-                            left: 50%;
-                            transform: translateX(-50%);
-                            width: 0;
-                            height: 0;
-                            border: 5px solid $white-1;
-                            border-left: 5px solid transparent;
-                            border-right: 5px solid transparent;
-                            border-bottom: 5px solid transparent;
+                            bottom: 15px;
+                            right: -5px;
+                            background: $grey-2;
+                            border-radius: 50%;
+                            &::after {
+                                content: "";
+                                position: absolute;
+                                top: 9px;
+                                left: 50%;
+                                transform: translateX(-50%);
+                                width: 0;
+                                height: 0;
+                                border: 5px solid $white-1;
+                                border-left: 5px solid transparent;
+                                border-right: 5px solid transparent;
+                                border-bottom: 5px solid transparent;
+                            }
                         }
                     }
                     .img_container {

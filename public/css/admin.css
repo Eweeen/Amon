@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /* ============= IMPORT ============= */
 /* ============= PLACEHOLDERS ============= */
-#admin-container .container_block_content .footer_btn, #admin-container .container_block_content .slide_list .slide_item .slide_tools, #admin-container .container_block table .tab_tools, .sidebar .btn_deconnexion a, .sidebar_list .sidebar_item .sidebar_link, .sidebar_brand {
+#admin-container .container_block form .social_fields, #admin-container .container_block_content .footer_btn, #admin-container .container_block_content .slide_list .slide_item .slide_tools, #admin-container .container_block table .tab_tools, .sidebar .btn_deconnexion a, .sidebar_list .sidebar_item .sidebar_link, .sidebar_brand {
   display: flex;
   align-items: center;
 }
@@ -100,19 +100,23 @@ main {
   margin-bottom: 20px;
   color: rgba(255, 255, 255, 0.6);
 }
-#admin-container .half_block {
-  width: calc(50% - 20px);
-  max-width: 250px;
-  padding: 20px;
+#admin-container .container_half_block {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
-#admin-container .half_block h2 {
-  margin-bottom: 10px;
+#admin-container .container_half_block .half_block {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: calc(50% - 10px);
+  padding: 20px;
   font-size: 16px;
   font-weight: 400;
+  color: rgba(255, 255, 255, 0.8);
 }
-#admin-container .half_block .nb_msg {
-  font-size: 28px;
-  font-weight: bold;
+#admin-container .container_half_block .half_block .bx {
+  margin-right: 10px;
 }
 #admin-container .container_block {
   margin-bottom: 25px;
@@ -135,11 +139,15 @@ main {
   overflow: hidden;
   padding: 15px;
 }
-#admin-container .container_block table th:nth-of-type(3),
-#admin-container .container_block table td:nth-of-type(3) {
+#admin-container .container_block table .signal_user {
+  background: #46464C;
+}
+#admin-container .container_block table .tab_tools,
+#admin-container .container_block table .action_tab {
   width: 120px;
 }
-#admin-container .container_block table .tab_tools .bx {
+#admin-container .container_block table .tab_tools .bx,
+#admin-container .container_block table .action_tab .bx {
   width: 40px;
   height: 40px;
   display: flex;
@@ -150,7 +158,8 @@ main {
   margin-left: auto;
   margin-right: 0;
 }
-#admin-container .container_block table .tab_tools .bx:nth-of-type(2) {
+#admin-container .container_block table .tab_tools .bx:nth-of-type(2),
+#admin-container .container_block table .action_tab .bx:nth-of-type(2) {
   margin-left: 10px;
 }
 #admin-container .container_block_title {
@@ -192,7 +201,8 @@ main {
   border-radius: 5px;
 }
 #admin-container .container_block_content .create_new_slide_container,
-#admin-container .container_block_content .create_new_actus_container {
+#admin-container .container_block_content .create_new_actus_container,
+#admin-container .container_block_content .create_new_team_container {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -202,7 +212,8 @@ main {
   background: #313138;
 }
 #admin-container .container_block_content .create_new_slide_container .bx,
-#admin-container .container_block_content .create_new_actus_container .bx {
+#admin-container .container_block_content .create_new_actus_container .bx,
+#admin-container .container_block_content .create_new_team_container .bx {
   margin-right: 10px;
 }
 #admin-container .container_block_content .footer_btn .add_new_slide {
@@ -222,6 +233,30 @@ main {
   border-radius: 30px;
   margin-right: 10px;
   font-size: 16px;
+}
+#admin-container .container_block form .checkbox {
+  margin-bottom: 20px;
+}
+#admin-container .container_block form .checkbox input {
+  margin-right: 5px;
+}
+#admin-container .container_block form .checkbox input:nth-of-type(2) {
+  margin-left: 20px;
+}
+#admin-container .container_block form .social_fields {
+  margin-top: 20px;
+}
+#admin-container .container_block form .social_fields .bx {
+  width: 59px;
+  height: 59px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #46464C;
+}
+#admin-container .container_block form .social_fields input {
+  width: calc(100% - 59px) !important;
+  margin-bottom: 0 !important;
 }
 #admin-container .container_block form input[type=text],
 #admin-container .container_block form textarea {

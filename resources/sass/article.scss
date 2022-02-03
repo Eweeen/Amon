@@ -6,3 +6,88 @@
 
 
 /* ============= SECTION =============  */
+
+#actus {
+    .img_container {
+        width: 100%;
+        height: 300px;
+        background: $grey-3;
+        margin-bottom: $mm-2;
+    }
+    .actus_title,
+    .actus_content {
+        text-align: justify;
+    }
+    .actus_title {
+        margin-bottom: $mm-2;
+        h1 {
+            line-height: 30px;
+        }
+    }
+    .actus_content {
+        margin-bottom: $m-3;
+        p {
+            font-size: $f-3;
+            line-height: 26px;
+        }
+    }
+    .actus_date {
+        p {
+            color: $white-2;
+        }
+    }
+}
+
+#actus-recommended {
+    h2 {
+        margin-bottom: $m-4;
+    }
+    .list_actus {
+        @include tablet {
+            display: grid;
+            grid-template-columns: repeat(3, 32%);
+            column-gap: calc((100% - (32% * 3)) / 2);
+        }
+        .item_actus {
+            display: block;
+            &:not(:first-of-type) {
+                margin-top: $m-4;
+                @include tablet {
+                    margin: 0;
+                }
+            }
+            .link_actus {
+                display: block;
+                width: 100%;
+                .img_container {
+                    width: 100%;
+                    height: 140px;
+                    background: $grey-3;
+                }
+                .article_infos {
+                    padding: $p-4;
+                    background: $grey-1;
+                    h2 {
+                        height: 24px;
+                        overflow: hidden;
+                        color: $white-1;
+                        margin-bottom: $m-2;
+                    }
+                    p:nth-of-type(1) {
+                        height: 60px;
+                        overflow: hidden;
+                        color: $white-2;
+                        line-height: 20px;
+                        margin-bottom: $m-2;
+                        @include tablet {
+                            height: 40px;
+                        }
+                    }
+                    .date_article_published {
+                        color: $white-3;
+                    }
+                }
+            }
+        }
+    }
+}

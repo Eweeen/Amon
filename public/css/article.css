@@ -12,3 +12,86 @@
 /* ========== TRANSITION ========== */
 /* ============= GÉNÉRAL =============  */
 /* ============= SECTION =============  */
+#actus .img_container {
+  width: 100%;
+  height: 300px;
+  background: #46464C;
+  margin-bottom: 40px;
+}
+#actus .actus_title,
+#actus .actus_content {
+  text-align: justify;
+}
+#actus .actus_title {
+  margin-bottom: 40px;
+}
+#actus .actus_title h1 {
+  line-height: 30px;
+}
+#actus .actus_content {
+  margin-bottom: 15px;
+}
+#actus .actus_content p {
+  font-size: 16px;
+  line-height: 26px;
+}
+#actus .actus_date p {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+#actus-recommended h2 {
+  margin-bottom: 20px;
+}
+@media screen and (min-width: 768px) {
+  #actus-recommended .list_actus {
+    display: grid;
+    grid-template-columns: repeat(3, 32%);
+    -moz-column-gap: 2%;
+         column-gap: 2%;
+  }
+}
+#actus-recommended .list_actus .item_actus {
+  display: block;
+}
+#actus-recommended .list_actus .item_actus:not(:first-of-type) {
+  margin-top: 20px;
+}
+@media screen and (min-width: 768px) {
+  #actus-recommended .list_actus .item_actus:not(:first-of-type) {
+    margin: 0;
+  }
+}
+#actus-recommended .list_actus .item_actus .link_actus {
+  display: block;
+  width: 100%;
+}
+#actus-recommended .list_actus .item_actus .link_actus .img_container {
+  width: 100%;
+  height: 140px;
+  background: #46464C;
+}
+#actus-recommended .list_actus .item_actus .link_actus .article_infos {
+  padding: 20px;
+  background: #1C1C1D;
+}
+#actus-recommended .list_actus .item_actus .link_actus .article_infos h2 {
+  height: 24px;
+  overflow: hidden;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 10px;
+}
+#actus-recommended .list_actus .item_actus .link_actus .article_infos p:nth-of-type(1) {
+  height: 60px;
+  overflow: hidden;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 20px;
+  margin-bottom: 10px;
+}
+@media screen and (min-width: 768px) {
+  #actus-recommended .list_actus .item_actus .link_actus .article_infos p:nth-of-type(1) {
+    height: 40px;
+  }
+}
+#actus-recommended .list_actus .item_actus .link_actus .article_infos .date_article_published {
+  color: rgba(255, 255, 255, 0.3);
+}
