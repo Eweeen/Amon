@@ -28,65 +28,71 @@
     {{-- FIN DE LA CONDITION --}}
 
             <ul class="list_conv">
-                <!-- Le chat général n'a pas les 3 points pour supprimer la conversation car la conversation ne peux pas être supprimer -->
-                <li class="item_conv" data-conv="1000000000">
-                    <div class="item_conv_container">
-                        <div class="conv_img img_container">
-                            <img src="img/logo.png" alt="">
-                        </div>
-                        <div class="conv_infos">
-                            <h2 class="conv_name">Chat Général</h2>
-                            <p class="conv_last_msg">Lorem ipsum dolor sit amet</p>
-                        </div>
-                    </div>
-                </li>
-                @auth
-                    @for($i = 0; $i < count($messages); $i++)
-                    <li class="item_conv" data-conv="{{ $messages[$i]->id_message }}">
+                @if ($url !== null)
+                <a href="/chat" style="color: inherit;">
+                    <li class="item_conv">
+                @else 
+                    <li class="item_conv actif_conv">
+                @endif
                         <div class="item_conv_container">
                             <div class="conv_img img_container">
-                                <img src="{{ asset('img/'.$user[$i]->img_profil) }}" alt="{{ $user[$i]->pseudo }}">
+                                <img src="{{ asset('img/logo.png') }}" alt="Logo Amon">
                             </div>
                             <div class="conv_infos">
-                                <h2 class="conv_name">{{ $user[$i]->pseudo }}</h2>
-                                <p class="conv_last_msg">{{ $messages[$i]->message }}</p>
-                            </div>
-    
-                            <div class="modal_container">
-                                <div class="btn btn_dot">
-                                    <i class="bx bx-dots-vertical-rounded"></i>
-                                </div>
-                                <div class="modal_bg">
-                                    <div class="modal_settings_chat">
-                                        <span class="close_modal"><i class='bx bx-x'></i>Fermer</span>
-                                        <span class="delete_conversation"><i class='bx bx-trash-alt'></i>Supprimer la conversation</span>
-                                    </div>
-                                </div>
+                                <h2 class="conv_name">Chat Général</h2>
+                                <p class="conv_last_msg">Lorem ipsum dolor sit amet</p>
                             </div>
                         </div>
                     </li>
-                    @endfor
+                @if ($url !== null)
+                </a>
+                @endif
+
+                @auth
+                @for($i = 0; $i < count($conversations); $i++)
+                    @if ($url !== $users[$i]->id)
+                    <a href="/chat/{{ $users[$i]->id }}" style="color: inherit;">
+                        <li class="item_conv">
+                    @else
+                        <li class="item_conv actif_conv">
+                    @endif
+                            <div class="item_conv_container">
+                                <div class="conv_img img_container">
+                                    <img src="{{ asset('img/'.$users[$i]->img_profil) }}" alt="{{ $users[$i]->pseudo }}">
+                                </div>
+                                <div class="conv_infos">
+                                    <h2 class="conv_name">{{ $users[$i]->pseudo }}</h2>
+                                    @if ($conversations[$i]->pseudo === auth()->user()->pseudo)
+                                        <p class="conv_last_msg">Vous: {{ $conversations[$i]->message }}</p>
+                                    @else
+                                        <p class="conv_last_msg">{{ $conversations[$i]->pseudo }}: {{ $conversations[$i]->message }}</p>
+                                    @endif
+                                </div>
+        
+                                <div class="modal_container">
+                                    <div class="btn btn_dot">
+                                        <i class="bx bx-dots-vertical-rounded"></i>
+                                    </div>
+                                    <div class="modal_bg">
+                                        <div class="modal_settings_chat">
+                                            <span class="close_modal"><i class='bx bx-x'></i>Fermer</span>
+                                            <span class="delete_conversation"><i class='bx bx-trash-alt'></i>Supprimer la conversation</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    @if ($url !== $users[$i]->id)
+                    </a>
+                    @endif
+                @endfor
                 @endauth
             </ul>
             <ul class="list_new_conv">
-                <li class="item_conv" data-conv="1000000002">
+                <li class="item_conv">
                     <div class="item_conv_container">
                         <div class="conv_img img_container">
-                            <img src="img/logo.png" alt="">
-                        </div>
-                        <div class="conv_infos">
-                            <h2 class="conv_name">Ewen</h2>
-                            <div class="btn_container">
-                                <div class="accept_btn btn"><i class='bx bx-check'></i></div>
-                                <div class="refuse_btn btn"><i class='bx bx-x'></i></div>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li class="item_conv" data-conv="1000000002">
-                    <div class="item_conv_container">
-                        <div class="conv_img img_container">
-                            <img src="img/logo.png" alt="">
+                            <img src="" alt="">
                         </div>
                         <div class="conv_infos">
                             <h2 class="conv_name">Ewen</h2>
@@ -120,58 +126,65 @@
             </div>
 
             <div class="chat_container">
-                <div class="msg msg_left">
-                    <div class="msg_img_profil img_container">
-                        <img src="{{ asset('img/default_user.png') }}">
-                    </div>
-                    <div class="msg_container">
-                        <div class="msg_pseudo">Ewen</div>
-                        <div class="msg_content">
-                            <p data-id-msg="0001">Lorem ipsum dolor sit amet consectetur adipisicing elit. Est saepe fugit facere dolores facilis ab eligendi obcaecati illum, dolor illo odio quo vel, nobis aperiam nemo molestiae, dolorem aliquid aspernatur!</p>
-                            <div class="modal_container">
-                                <div class="btn btn_dot">
-                                    <i class="bx bx-dots-vertical-rounded"></i>
-                                </div>
-                                <div class="modal_bg">
-                                    <div class="modal_settings_chat">
-                                        <span class="close_modal"><i class='bx bx-x' ></i>Fermer</span>
-                                        <span class="signal_message"><i class='bx bx-message-square-error'></i>Signaler le message</span>
-                                        <span><a href=""><i class='bx bx-user'></i>Voir le profil</a></span>
+                @foreach ($messages as $message)
+                    @if ($message->id_expediteur === auth()->id())
+                        <div class="msg msg_right"> 
+                            <div class="msg_img_profil img_container">
+                                <img src="{{ asset('img/'.$message->img_profil) }}" alt="{{ $message->pseudo }}" draggable="false" crossorigin="anonymous">
+                            </div>
+                            <div class="msg_container">
+                                <div class="msg_pseudo">{{ $message->pseudo }}</div>
+                                <div class="msg_content">
+                                    <p>{{ $message->message }}</p>
+                                    <div class="modal_container">
+                                        <div class="btn btn_dot">
+                                            <i class="bx bx-dots-vertical-rounded"></i>
+                                        </div>
+                                        <div class="modal_bg">
+                                            <div class="modal_settings_chat">
+                                                <span class="close_modal"><i class='bx bx-x'></i>Fermer</span>
+                                                <span class="delete_message" data-id="{{ $message->id }}"><i class='bx bx-trash-alt'></i>Supprimer le message</span>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-
-                <div class="msg msg_right"> 
-                    <div class="msg_img_profil img_container">
-                        <img src="{{ asset('img/default_user.png') }}">
-                    </div>
-                    <div class="msg_container">
-                        <div class="msg_pseudo">BenjaminDrn</div>
-                        <div class="msg_content">
-                            <p data-id-msg="000">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolor, libero? Pariatur consequuntur beatae quas perspiciatis saepe! Incidunt dolorem fuga rem tempora! Excepturi sapiente deserunt corrupti quae eius itaque, nostrum sunt.</p>
-                            <div class="modal_container">
-                                <div class="btn btn_dot">
-                                    <i class="bx bx-dots-vertical-rounded"></i>
-                                </div>
-                                <div class="modal_bg">
-                                    <div class="modal_settings_chat">
-                                        <span class="close_modal"><i class='bx bx-x' ></i>Fermer</span>
-                                        <span class="delete_message"><i class='bx bx-trash-alt'></i>Supprimer le message</span>
+                    @else
+                        <div class="msg msg_left">
+                            <div class="msg_img_profil img_container">
+                                <img src="{{ asset('img/'.$message->img_profil) }}" alt="{{ $message->pseudo }}">
+                            </div>
+                            <div class="msg_container">
+                                <div class="msg_pseudo">{{ $message->pseudo }}</div>
+                                <div class="msg_content">
+                                    <p>{{ $message->message }}</p>
+                                    <div class="modal_container">
+                                        <div class="btn btn_dot">
+                                            <i class="bx bx-dots-vertical-rounded"></i>
+                                        </div>
+                                        <div class="modal_bg">
+                                            <div class="modal_settings_chat">
+                                                <span class="close_modal"><i class='bx bx-x'></i>Fermer</span>
+                                                <span class="signal_message"><i class='bx bx-message-square-error'></i>Signaler le message</span>
+                                                <span><a href="/profil/{{ $message->pseudo }}"><i class='bx bx-user'></i>Voir le profil</a></span>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
+                    @endif
+                @endforeach
             </div>
 
             <div class="chat_bar">
     {{-- SI L'UTILISATEUR EST CONNECTER --}}
             @auth
                 <div class="chat_bar_container">
+                    @if ($id_conv !== null)
+                        <input type="hidden" name="id_conv" id="id_conv" value="{{ $id_conv }}">
+                    @endif
                     <input type="text" name="chat_bar" id="chat_bar" placeholder="Message" autocomplete="off">
                     <button id="send_msg_btn"><i class="bx bx-send"></i></button>
                 </div>
@@ -194,4 +207,190 @@
 
 @section("script")
     <script type="text/javascript" src="{{ asset('js/chat.js') }}"></script>
+    <script>
+        let chatBox = document.querySelector('.chat_container');
+
+        function scrollToBottom(){
+            chatBox.scrollTop = chatBox.clientHeight;
+        }
+
+        scrollToBottom();
+    </script>
+@auth
+    <script>
+        $(document).on('click', '.signal_message', function(){
+            const user_id = "{{ $url }}";
+            const message = $(this).parents('.msg_left');
+            const chat = '';
+            const message_date = '';
+            const id_report = "{{ auth()->id() }}";
+            
+            console.log("Signalement");
+            console.log(user_id);
+            console.log(message);
+            console.log(chat);
+            console.log(message_date);
+            console.log(id_report);
+        });
+    </script>
+
+    @if (is_string($url))
+    <script>
+        const user_id = "{{ auth()->id() }}";
+
+        $(document).on('click', '.delete_message', function(){
+            $(this).parents('.msg_right').remove();
+            axios.delete('/chat/'+$(this).attr('data-id'));
+        });
+
+        $('#send_msg_btn').on('click', function (){
+            axios.post('/chat', {
+                message: $('#chat_bar').val(),
+                id_conv: $('#id_conv').val(),
+                receiver: '{{ $url }}'
+            })
+            .then((response) => {
+                $('.chat_container').append(`<div class="msg msg_right"> 
+                                                <div class="msg_img_profil img_container">
+                                                    <img src="{{ asset('img/'.auth()->user()->img_profil) }}" alt="{{ auth()->user()->pseudo }}">
+                                                </div>
+                                                <div class="msg_container">
+                                                    <div class="msg_pseudo">{{ auth()->user()->pseudo }}</div>
+                                                    <div class="msg_content">
+                                                        <p>${response.data.message}</p>
+                                                        <div class="modal_container">
+                                                            <div class="btn btn_dot">
+                                                                <i class="bx bx-dots-vertical-rounded"></i>
+                                                            </div>
+                                                            <div class="modal_bg">
+                                                                <div class="modal_settings_chat">
+                                                                    <span class="close_modal"><i class='bx bx-x'></i>Fermer</span>
+                                                                    <span class="delete_message" data-id="${response.data.id_message}"><i class='bx bx-trash-alt'></i>Supprimer le message</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>`);
+
+                $('.actif_conv').find('.conv_last_msg').text('Vous: ' + response.data.message);
+                scrollToBottom();
+            });
+
+            $('#chat_bar').val('');
+        });
+
+        window.Echo.private('chat.' + user_id)
+            .listen('.chat-message', (data) => {
+                if (data.id === '{{ $url }}'){
+                    $('.chat_container').append(`<div class="msg msg_left">
+                                                    <div class="msg_img_profil img_container">
+                                                        <img src="{{ asset('img/${data.img_profil}') }}" alt="${data.pseudo}">
+                                                    </div>
+                                                    <div class="msg_container">
+                                                        <div class="msg_pseudo">${data.pseudo}</div>
+                                                        <div class="msg_content">
+                                                            <p data-id-msg="0001">${data.message}</p>
+                                                            <div class="modal_container">
+                                                                <div class="btn btn_dot">
+                                                                    <i class="bx bx-dots-vertical-rounded"></i>
+                                                                </div>
+                                                                <div class="modal_bg">
+                                                                    <div class="modal_settings_chat">
+                                                                        <span class="close_modal"><i class='bx bx-x'></i>Fermer</span>
+                                                                        <span class="signal_message"><i class='bx bx-message-square-error'></i>Signaler le message</span>
+                                                                        <span><a href="/profil/${data.pseudo}"><i class='bx bx-user'></i>Voir le profil</a></span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>`);
+                    
+                }
+
+                if (chatBox.scrollHeight - Math.floor(chatBox.scrollTop) - 87 === chatBox.clientHeight) {
+                    scrollToBottom();
+                }
+
+                for (let i = 0; i < $('.conv_name').length; i++){
+                    if ($('.conv_name')[i].innerHTML === data.pseudo){
+                        $('.conv_name').next()[i].innerHTML = data.pseudo+': '+data.message;
+                    }
+                }
+            });
+    </script>
+    @else
+    <script>
+        $(document).on('click', '.delete_message', function(){
+            $(this).parents('.msg_right').remove();
+        });
+
+        $('#send_msg_btn').on('click', function (){
+            axios.post('/chat', {
+                message: $('#chat_bar').val(),
+                receiver: '{{ $url }}'
+            })
+            .then((response) => {
+                $('.chat_container').append(`<div class="msg msg_right"> 
+                                                <div class="msg_img_profil img_container">
+                                                    <img src="{{ asset('img/'.auth()->user()->img_profil) }}" alt="{{ auth()->user()->pseudo }}">
+                                                </div>
+                                                <div class="msg_container">
+                                                    <div class="msg_pseudo">{{ auth()->user()->pseudo }}</div>
+                                                    <div class="msg_content">
+                                                        <p data-id-msg="000">${response.data.message}</p>
+                                                        <div class="modal_container">
+                                                            <div class="btn btn_dot">
+                                                                <i class="bx bx-dots-vertical-rounded"></i>
+                                                            </div>
+                                                            <div class="modal_bg">
+                                                                <div class="modal_settings_chat">
+                                                                    <span class="close_modal"><i class='bx bx-x'></i>Fermer</span>
+                                                                    <span class="delete_message"><i class='bx bx-trash-alt'></i>Supprimer le message</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>`);
+            });
+
+            scrollToBottom();
+            $('#chat_bar').val('');
+        });
+
+        window.Echo.channel('chat-general')
+            .listen('.chat-general-message', (data) => {
+                $('.chat_container').append(`<div class="msg msg_left">
+                                                <div class="msg_img_profil img_container">
+                                                    <img src="{{ asset('img/${data.user.img_profil}') }}" alt="${data.user.pseudo}">
+                                                </div>
+                                                <div class="msg_container">
+                                                    <div class="msg_pseudo">${data.user.pseudo}</div>
+                                                    <div class="msg_content">
+                                                        <p data-id-msg="0001">${data.message}</p>
+                                                        <div class="modal_container">
+                                                            <div class="btn btn_dot">
+                                                                <i class="bx bx-dots-vertical-rounded"></i>
+                                                            </div>
+                                                            <div class="modal_bg">
+                                                                <div class="modal_settings_chat">
+                                                                    <span class="close_modal"><i class='bx bx-x'></i>Fermer</span>
+                                                                    <span class="signal_message"><i class='bx bx-message-square-error'></i>Signaler le message</span>
+                                                                    <span><a href="/profil/${data.user.pseudo}"><i class='bx bx-user'></i>Voir le profil</a></span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>`);
+                
+                if (Math.floor(chatBox.scrollHeight) - Math.floor(chatBox.scrollTop) === Math.floor(chatBox.clientHeight)) {
+                    scrollToBottom();
+                }
+            });
+    </script>
+    @endif
+@endauth
 @endsection

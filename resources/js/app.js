@@ -1,10 +1,4 @@
-// require('./bootstrap');
-
-// Init AOS libs
-// AOS.init({
-//     duration: 1000,
-//     once: true
-// });
+require('./bootstrap');
 
 $(function() {
 

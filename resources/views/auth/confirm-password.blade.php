@@ -1,37 +1,26 @@
-<link href="{{ asset('css/forgetPass.css') }}" rel="stylesheet">
-<x-guest-layout>
+<x-form-layout>
+    <x-slot name="style">
+        <link href="{{ asset('css/forgetPass.css') }}" rel="stylesheet">
+    </x-slot>
     <x-auth-card>
-        <x-slot name="logo">
-            <a href="/">
-                <x-application-logo/>
-            </a>
-        </x-slot>
 
-        <div>
-            {{ __('This is a secure area of the application. Please confirm your password before continuing.') }}
-        </div>
-
-        <!-- Validation Errors -->
-        <x-auth-validation-errors :errors="$errors" />
-
-        <form method="POST" action="{{ route('password.confirm') }}">
-            @csrf
-
-            <!-- Password -->
-            <div>
-                <x-label for="password" :value="__('Password')" />
-
-                <x-input id="password" class="block mt-1 w-full"
-                                type="password"
-                                name="password"
-                                required autocomplete="current-password" />
-            </div>
+        <section id="forget-form">
 
             <div>
-                <x-button>
-                    {{ __('Confirm') }}
-                </x-button>
+                {{ __('Il s\'agit d\'une zone sécurisée de l\'application. Veuillez confirmer votre mot de passe avant de continuer.') }}
             </div>
-        </form>
+            
+            <form method="POST" action="{{ route('password.confirm') }}">
+                @csrf
+                
+                <!-- Validation Errors -->
+                <x-auth-validation-errors :errors="$errors" />
+                
+                <!-- Password -->
+                <x-input id="password" type="password" name="password" placeholder="Votre mot de passe" required autocomplete="current-password" />
+                
+                <x-button>{{ __('Confirm') }}</x-button>
+            </form>
+        </section>
     </x-auth-card>
-</x-guest-layout>
+</x-form-layout>

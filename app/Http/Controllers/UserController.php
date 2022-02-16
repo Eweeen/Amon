@@ -12,7 +12,7 @@ use Illuminate\Validation\Rules;
 
 class UserController extends Controller
 {
-    function data(){
+    function index(){
         return view('compte', [
             "links" => Link::where('user_id', Auth::user()->id)->first()
         ]);
@@ -63,7 +63,7 @@ class UserController extends Controller
         $links->instagram = ($request->user_instagram) ? $request->user_instagram : "";
         $links->save();
 
-        return redirect()->route('compte');
+        return redirect('/compte');
     }
 
     function updatePassword(Request $request){
@@ -81,6 +81,6 @@ class UserController extends Controller
             }
         }
 
-        return redirect()->route('compte');
+        return redirect('/compte');
     }
 }

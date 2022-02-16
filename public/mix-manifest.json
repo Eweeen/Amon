@@ -5,7 +5,7 @@
     "/js/chat.js": "/js/chat.js",
     "/js/form.js": "/js/form.js",
     "/js/profil.js": "/js/profil.js",
-    "/css/app.css": "/css/app.css",
+    "/css/login.css": "/css/login.css",
     "/css/form.css": "/css/form.css",
     "/css/forgetPass.css": "/css/forgetPass.css",
     "/css/chat.css": "/css/chat.css",
@@ -16,6 +16,5 @@
     "/css/compte.css": "/css/compte.css",
     "/css/team.css": "/css/team.css",
     "/css/register.css": "/css/register.css",
-    "/css/profil.css": "/css/profil.css",
-    "/css/login.css": "/css/login.css"
+    "/css/profil.css": "/css/profil.css"
 }

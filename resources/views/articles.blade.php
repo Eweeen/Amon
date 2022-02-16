@@ -11,56 +11,26 @@
 @section("content")
 
     <main>
-
         <section>
             <div class="container">
                 <ul class="articles_list">
                     <li class="article_item">
-                        <a href="" class="article_link">
+                        @foreach ($articles as $article)
+                        <a href="/article/{{ $article->id }}" class="article_link">
                             <div class="img_container">
-                                <img src="" alt="">
+                                <img src="{{ asset('img_articles/'.$article->path) }}" alt="{{ $article->titre }}">
                             </div>
                             <div class="article_infos">
-                                <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae, quos fugit nobis aliquid autem quia, similique nesciunt modi culpa atque maxime at ipsam esse, inventore iste earum? Non, consectetur at.</h2>
-                                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus molestias alias quaerat illum, inventore ratione iure nihil, aut quae, similique tempore vero voluptatibus vitae dolores ipsam saepe nam in rem?</p>
-                                <p class="date_article_published">23-01-2022</p>
+                                <h2>{{ $article->titre }}</h2>
+                                <p>{{ $article->contenu }}</p>
+                                <p class="date_article_published">{{ date('d/m/Y', strtotime($article->created_at)) }}</p>
                             </div>
                         </a>
-                        <a href="" class="article_link">
-                            <div class="img_container">
-                                <img src="" alt="">
-                            </div>
-                            <div class="article_infos">
-                                <h2>Lorem Ipsum</h2>
-                                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus molestias alias quaerat illum, inventore ratione iure nihil, aut quae, similique tempore vero voluptatibus vitae dolores ipsam saepe nam in rem?</p>
-                                <p class="date_article_published">23-01-2022</p>
-                            </div>
-                        </a>
-                        <a href="" class="article_link">
-                            <div class="img_container">
-                                <img src="" alt="">
-                            </div>
-                            <div class="article_infos">
-                                <h2>Lorem Ipsum</h2>
-                                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus molestias alias quaerat illum, inventore ratione iure nihil, aut quae, similique tempore vero voluptatibus vitae dolores ipsam saepe nam in rem?</p>
-                                <p class="date_article_published">23-01-2022</p>
-                            </div>
-                        </a>
-                        <a href="" class="article_link">
-                            <div class="img_container">
-                                <img src="" alt="">
-                            </div>
-                            <div class="article_infos">
-                                <h2>Lorem Ipsum</h2>
-                                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus molestias alias quaerat illum, inventore ratione iure nihil, aut quae, similique tempore vero voluptatibus vitae dolores ipsam saepe nam in rem?</p>
-                                <p class="date_article_published">23-01-2022</p>
-                            </div>
-                        </a>
+                        @endforeach
                     </li>
                 </ul>
             </div>
         </section>
-
     </main>
 
 @endsection

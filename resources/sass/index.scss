@@ -36,6 +36,15 @@
                     &:nth-of-type(4) {
                         background: #D1D1D4;
                     }
+                    a {
+                        height: 100%;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        img {
+                            height: 100%;
+                        }
+                    }
                 }
             }
         }
@@ -155,11 +164,16 @@
                         margin: 0;
                     }
                 }
-                img {
-                    width: 100%;
+                .img_container {
+                    display: flex;
+                    justify-content: center;
                     height: 230px;
                     background: $white-2;
-                    overflow: hidden;
+                    img {
+                        width: auto;
+                        height: 100%;
+                        background: $white-2;
+                    }
                 }
                 p {
                     margin: 5px 0;

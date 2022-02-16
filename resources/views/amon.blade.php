@@ -10,26 +10,24 @@
 
 @section("content") 
     <main>
+        @if (count($slider) > 0)
         <section id="slider">
             <div class="slider">
                 <div class="slide_viewer">
                     <div class="slide_group">
+                        @foreach ($slider as $slide)
                         <div class="slide">
-                            <a href=""></a>
+                            <a href="">
+                                <img src="{{ asset('slider/'.$slide->path) }}" alt="Image Slide">
+                            </a>
                         </div>
-                        <div class="slide">
-                            <a href=""></a>
-                        </div>
-                        <div class="slide">
-                        </div>
-                        <div class="slide">
-                            <a href=""></a>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
                 <div class="slide_buttons"></div>
             </div>
 
+            @if (count($slider) > 1)
             <div class="directional_nav">
                 <div class="previous_btn" title="Previous">
                     <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="65px" height="65px" viewBox="-11 -11.5 65 66">
@@ -42,8 +40,9 @@
                     </svg>
                 </div>
             </div>
-
+            @endif
         </section>
+        @endif
 
         <section id="presentation">
             <div class="container">
@@ -58,28 +57,15 @@
                 <h2>Actualités</h2>
 
                 <div class="actu_grid">
-
+                    @foreach ($articles as $article)
                     <div class="actu_content">
-                        <img src="" alt="" class="img_container">
-                        <p>21/12/2021</p>
-                        <h3>Amon lauch this e-sport team</h3>
+                        <div class="img_container">
+                            <img src="{{ asset('img_articles/'.$article->path) }}" alt="{{ $article->titre }}">
+                        </div>
+                        <p>{{ date('d/m/Y', strtotime($article->created_at)) }}</p>
+                        <h3>{{ $article->titre }}</h3>
                     </div>
-                    <div class="actu_content">
-                        <img src="" alt="" class="img_container">
-                        <p>21/12/2021</p>
-                        <h3>Amon lauch this e-sport team</h3>
-                    </div>
-
-                    <div class="actu_content">
-                        <img src="" alt="" class="img_container">
-                        <p>21/12/2021</p>
-                        <h3>Amon lauch this e-sport team</h3>
-                    </div>
-                    <div class="actu_content">
-                        <img src="" alt="" class="img_container">
-                        <p>21/12/2021</p>
-                        <h3>Amon lauch this e-sport team</h3>
-                    </div>
+                    @endforeach
                     <div class="actu_twitter"> <!-- Mettre un overflow auto et une taille fixe à la div -->
                         <a class="twitter-timeline" 
                             data-lang="fr"

@@ -1,6 +1,9 @@
 <?php
 
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\AmonController;
+use App\Http\Controllers\ChatController;
+use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,9 +22,23 @@ Route::middleware(['auth'])->group(function () {
         return view('dashboard');
     })->name('dashboard');
 
-    Route::get('/compte', '\App\Http\Controllers\UserController@data')->name('compte');
-    Route::post('/update/links/{id}', '\App\Http\Controllers\UserController@updateLinks')->name('updateLinks');
-    Route::post('/update/password/{id}', '\App\Http\Controllers\UserController@updatePassword')->name('updatePassword');
+    Route::get('/compte', [UserController::class, 'index']);
+    Route::post('/update/links/{id}', [UserController::class, 'updateLinks'])->name('updateLinks');
+    Route::post('/update/password/{id}', [UserController::class, 'updatePassword'])->name('updatePassword');
+
+    Route::middleware(['admin'])->group(function () {
+        Route::get('/admin', [AdminController::class, 'index'])->name('admin');
+        Route::post('/admin/slide', [AdminController::class, 'add_slide']);
+        Route::delete('/admin/delete/slide/{id}', [AdminController::class, 'delete_slide']);
+
+        Route::get('/admin/team', [AdminController::class, 'admin_membres'])->name('admin.team');
+        Route::post('/admin/team/create', [AdminController::class, 'add_membres']);
+        Route::delete('/admin/team/delete/{id}', [AdminController::class, 'delete_membres']);
+
+        Route::get('/admin/actus', [AdminController::class, 'admin_actus'])->name('actus');
+        Route::post('/admin/actus/create', [AdminController::class, 'add_actus']);
+        Route::delete('/admin/actus/delete/{id}', [AdminController::class, 'delete_actus']);
+    });
 
 });
 
@@ -30,17 +47,10 @@ require __DIR__.'/auth.php';
 Route::get('/', [AmonController::class, 'index'])->name('home');
 Route::get('/team', [AmonController::class, 'team'])->name('team');
 Route::get('/competition', [AmonController::class, 'competition'])->name('competition');
-Route::get('/chat', '\App\Http\Controllers\ChatController@chat')->name('chat');
+
+Route::resource('/chat', ChatController::class);
+
 Route::get('/profil/{id}', [AmonController::class, 'profil'])->name('profil');
-Route::get('/profil', [AmonController::class, 'profilNotFound'])->name('profilNotFound');
 
 Route::get('/articles', [AmonController::class, 'articles'])->name('articles');
-Route::get('/article', [AmonController::class, 'article'])->name('article');
-
-// Route::get('/login', [AmonController::class, 'login'])->name('login');
-// Route::get('/register', [AmonController::class, 'register'])->name('register');
-
-
-Route::get('/admin', [AmonController::class, 'adminIndex'])->name('admin');
-Route::get('/admin/actus', [AmonController::class, 'adminActus'])->name('actus');
-Route::get('/admin/team', [AmonController::class, 'adminTeam'])->name('team');
+Route::get('/article/{id}', [AmonController::class, 'article']);

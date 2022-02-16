@@ -1,37 +1,26 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <!-- META -->
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-        <meta name="csrf-token" content="{{ csrf_token() }}">
-        <!-- TITLE -->
-        <title>{{ config('app.name', 'Laravel') }}</title>
-        <!-- FAVICON -->
-        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-        <!-- CSS -->
-        <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+<html lang="fr">
+<head>
+    <!-- META -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <!-- TITLE -->
+    <title>AMON</title>
+    <!-- FAVICON -->
+    <link rel="icon" href="{{ asset('img/logo.png') }}" type="image/x-icon">
+    <!-- CSS -->
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/admin.css') }}" rel="stylesheet">
+    <link href="{{ asset('libs/boxicons/css/boxicons.min.css') }}" rel="stylesheet">
+</head>
+<body>
 
-        
-    </head>
-    <body>
-        <div>
-            @include('layouts.navigation')
+    @yield('content')
 
-            <!-- Page Heading -->
-            <header>
-                <div>
-                    {{ $header }}
-                </div>
-            </header>
-
-            <!-- Page Content -->
-            <main>
-                {{ $slot }}
-            </main>
-        </div>
-
-        <!-- SCRIPT -->
-        <script src="{{ asset('js/app.js') }}" defer></script>
-    </body>
+    <script type="text/javascript" src="{{ asset('libs/jquery.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
+    @yield('script')
+</body>
 </html>

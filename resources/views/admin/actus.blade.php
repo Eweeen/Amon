@@ -1,20 +1,15 @@
-@extends('layouts.app')
-
-@section("styles")
-    <link href="{{ asset('css/admin.css') }}" rel="stylesheet">
-@endsection
+@extends('layouts.admin')
 
 @section("content") 
-
     <main >
         <div class="sidebar">
 
-            <div class="sidebar_brand">
+            <a href="/" class="sidebar_brand">
                 <div class="img_container">
-                    <img src="" alt="">
+                    <img src="{{ asset('img/logo.png') }}" alt="Logo Amon">
                 </div>
                 <p>Amon</p>
-            </div>
+            </a>
             
             <ul class="sidebar_list">
                 <li class="sidebar_item" data-link="">
@@ -24,7 +19,7 @@
                     <a href="{{ Route("actus") }}" class="sidebar_link {{Route::getCurrentRoute()->uri() == 'admin/actus' ? 'active_link' : '' }}"><i class='bx bx-news'></i><span>Actualités</span></a>
                 </li>
                 <li class="sidebar_item" data-link="">
-                    <a href="{{ Route("team") }}" class="sidebar_link {{Route::getCurrentRoute()->uri() == 'admin/team' ? 'active_link' : '' }}"><i class='bx bx-group' ></i><span>Team</span></a>
+                    <a href="{{ Route("admin.team") }}" class="sidebar_link {{Route::getCurrentRoute()->uri() == 'admin/team' ? 'active_link' : '' }}"><i class='bx bx-group' ></i><span>Team</span></a>
                 </li>
             </ul>
             <div class="btn btn_deconnexion">
@@ -46,16 +41,26 @@
                         <p>Nouvelle actualité</p>
                     </div>
                     <div class="container_block_content">
-                        <form action="" method="post">
+                        @if ($errors->any())
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                            <br>
+                        @endif
+
+                        <form action="/admin/actus/create" method="post" enctype="multipart/form-data">
+                            @csrf
                             <div class="create_new_actus">
-                                <input type="file" name="" id="new_img_actus">
+                                <input type="file" name="new_img_actus" id="new_img_actus">
                                 <label for="new_img_actus" class="create_new_actus_container btn">
                                     <i class='bx bx-image-add'></i>
                                     <p>Import une image</p>
                                 </label>
                             </div>
-                            <input type="text" name="" id="" placeholder="Titre de l'article">
-                            <textarea name="" id="" cols="30" rows="10" placeholder="Contenu de l'article"></textarea>
+                            <input type="text" name="new_titre_actus" id="new_titre_actus" placeholder="Titre de l'article">
+                            <textarea name="new_contenu_actus" id="new_contenu_actus" cols="30" rows="10" placeholder="Contenu de l'article"></textarea>
 
                             <button type="submit" class="btn">Créer</button>
                         </form>
@@ -72,13 +77,23 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @if (count($articles) > 0)
+                                @foreach ($articles as $article)
+                                <tr>
+                                    <td>{{ $article->titre }}</td>
+                                    <td>{{ date('d/m/Y H:i', strtotime($article->created_at)) }}</td>
+                                    <td class="tab_tools">
+                                        <i class='bx btn bx-trash' data-id="{{ $article->id }}"></i>
+                                    </td>
+                                </tr>
+                                @endforeach
+                            @else
                             <tr>
+                                <td>Aucuns articles</td>
                                 <td>-</td>
-                                <td>-</td>
-                                <td class="tab_tools">
-                                    <i class='bx btn bx-trash'></i>
-                                </td>
+                                <td class="tab_tools"></td>
                             </tr>
+                            @endif
                         </tbody>
                     </table>
                 </div>
@@ -88,9 +103,12 @@
     </main>
 
 @endsection
-@section("script")
 
-    <script type="text/javascript" src="{{ asset('js/index.js') }}"></script>
-    <script src="https://platform.twitter.com/widgets.js"></script>
-
+@section('script')
+<script>
+    $(document).on('click', '.bx-trash', function(){
+        $(this).parents('tr').remove();
+        axios.delete('/admin/actus/delete/'+$(this).attr('data-id'));
+    });
+</script>
 @endsection

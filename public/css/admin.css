@@ -48,6 +48,7 @@ main {
   border-radius: 50%;
 }
 .sidebar_brand p {
+  color: rgba(255, 255, 255, 0.8);
   letter-spacing: 1px;
   text-transform: uppercase;
   margin-left: 20px;
@@ -185,6 +186,9 @@ main {
   margin-bottom: 20px;
 }
 #admin-container .container_block_content .slide_list .slide_item .img_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 150px;
   height: 75px;
   background: #46464C;

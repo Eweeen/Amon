@@ -10,7 +10,7 @@ $(function() {
 
     /**
      *
-     *  WHEN SELECT CONV ITEM, ADD CLASS TO SHOW ACTIVE CONVERSATION
+     *  WHEN SELECT CONV ITEM
      * 
      */
 
@@ -24,17 +24,6 @@ $(function() {
                 $("#chat").css("left", "-100%");
             });
         }
-    } else {
-        $(".item_conv").first().addClass("actif_conv");
-
-        $(".item_conv").click(function() {
-            if (!$(this).hasClass("actif_conv")) {
-                $(".item_conv").each(function() {
-                    $(".item_conv").removeClass("actif_conv");
-                });
-                $(this).addClass("actif_conv");
-            }
-        });
     }
 
     /**

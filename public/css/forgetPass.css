@@ -1,10 +1,5 @@
 @charset "UTF-8";
 /* ============= PLACEHOLDERS ============= */
-.alert {
-  display: flex;
-  align-items: center;
-}
-
 /* ============= MIXINS ============= */
 /* ============= VARIABLES ============= */
 /* ========== COLORS ========== */
@@ -15,27 +10,10 @@
 /* ========== MARGIN ========== */
 /* ========== TRANSITION ========== */
 /* ============= GÉNÉRAL ============= */
-body {
-  background: #1C1C1D;
-}
-
 main {
   width: 100%;
   min-height: 100vh;
   padding-top: 0 !important;
-}
-
-/* ============= ALERTS ============= */
-.alert {
-  width: 206px;
-  padding: 15px;
-  margin-bottom: 20px;
-  background: #EF5F58;
-  border-radius: 5px;
-}
-
-.alert .bx {
-  margin-right: 10px;
 }
 
 /* ============= FORM ============= */
@@ -45,10 +23,7 @@ main {
   justify-content: center;
   height: 100vh;
   padding: 30px;
-}
-
-#login-form .content {
-  margin: 35px 0;
+  background: #1C1C1D;
 }
 
 input {
@@ -62,10 +37,6 @@ input {
   }
 }
 @media screen and (min-width: 768px) {
-  body {
-    background: #46464C;
-  }
-
   #forget-form {
     position: absolute;
     top: 50%;
@@ -74,7 +45,6 @@ input {
     width: 55%;
     height: auto;
     padding: 80px 65px;
-    background: #1C1C1D;
   }
 }
 @media screen and (min-width: 992px) {

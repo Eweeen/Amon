@@ -29,6 +29,7 @@ main {
   justify-content: center;
   height: 100vh;
   padding: 30px;
+  background: #1C1C1D;
 }
 @media screen and (min-width: 576px) {
   #login-form {
@@ -44,7 +45,6 @@ main {
     width: 55%;
     height: auto;
     padding: 80px 65px;
-    background: #1C1C1D;
   }
 }
 @media screen and (min-width: 992px) {

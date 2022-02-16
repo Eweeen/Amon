@@ -3,76 +3,56 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Slider;
+use App\Models\Article;
+use App\Models\Membre;
 use App\Models\User;
 
 class AmonController extends Controller
 {
 
     public function index(){
-        return view('amon');
+        $slider = Slider::all();
+        $articles = Article::orderByDesc('created_at')->limit(4)->get();
+        
+        return view('amon', ['slider' => $slider, 'articles' => $articles]);
     }
 
     public function team(){
-        return view('team');
+        $membres = Membre::all();
+
+        return view('team', ['membres' => $membres]);
     }
 
     public function competition(){
         return view('competition');
     }
 
-    public function chat(){
-        return view('chat');
-    }
-
-    public function profil($id){
-        if (User::find($id)){
+    public function profil($pseudo){
+        if (User::firstWhere('pseudo', $pseudo)){
             $user = User::select('users.id','pseudo', 'img_profil', 'admin', 'description', 'twitch', 'twitter', 'instagram')
             ->join('links', 'users.id', '=', 'links.user_id')
-            ->where('users.id', $id)
+            ->where('users.pseudo', $pseudo)
             ->first();
 
             return view('profil', ['user' => $user]);
         } else {
-            dd('utilisateur introuvable !');
-            return view('profilNotFound');
+            return abort(404);
         }
     }
 
-    public function profilNotFound(){
-        dd('utilisateur introuvable !');
-        return view('profilNotFound');
-    }
-
-    public function login(){
-        return view('login');
-    }
-
-    public function register(){
-        return view('register');
-    }
-
-    public function compte(){
-        return view('compte');
-    }
-
-    public function adminIndex(){
-        return view('admin.index');
-    }
-
-    public function adminActus(){
-        return view('admin.actus');
-    }
-
-    public function adminTeam(){
-        return view('admin.team');
-    }
-
     public function articles(){
-        return view('articles');
+        $articles = Article::all();
+
+        return view('articles', ['articles' => $articles]);
     }
 
-    public function article(){
-        return view('article');
+    public function article($id){
+        $article = Article::findOrFail($id);
+
+        $articles = Article::whereNotIn('id', [$id])->orderByDesc('created_at')->limit(3)->get();
+
+        return view('article', ['article' => $article, 'articles' => $articles]);
     }
 
 }

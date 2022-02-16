@@ -14,16 +14,16 @@ main {
 /* ============= FORM ============= */
 
 #register-form {
-    @include up-phone {
+    background: $grey-1;
+    height: 100vh;
+    padding: 20px;
+    @include tablet {
         position: absolute;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
         width: 65%;
-        padding: 20px;
-        background: $grey-1;
-    }
-    @include tablet {
+        height: auto;
         padding: 50px 60px;
     }
     @include laptop {

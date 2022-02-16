@@ -17,7 +17,6 @@
                     <!-- Validation Errors -->
                     <x-auth-validation-errors class="mb-4" :errors="$errors" />
                     
-                    
                     <!-- Logs -->
                     <x-input id="login_user" type="text" name="login_user" placeholder="Pseudo / E-mail" :value="old('login_user')" required autofocus />
                     

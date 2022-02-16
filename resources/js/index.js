@@ -69,7 +69,7 @@ $('.slider').each(function() {
         if (currentIndex !== 0) {
             move(currentIndex - 1);
         } else {
-            move(3);
+            move($slides.length - 1);
         }
     });
 

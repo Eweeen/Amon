@@ -39,24 +39,26 @@
                 <div class="container_title" data-aos="fade-up">
                     <h2>Nos joueurs</h2>
                 </div>
-                <div class="profils_card_list">
-
-                    <div class="profil_card" data-aos="zoom-in-up" data-aos-delay="100">
-                        <div class="img_container">
-                            <img src="{{ asset('img/default_user.png') }}" alt="">
+                @foreach ($membres as $membre)
+                    @if ($membre->poste === "joueur")
+                        <div class="profils_card_list">
+                            <div class="profil_card" data-aos="zoom-in-up" data-aos-delay="100">
+                                <div class="img_container">
+                                    <img src="{{ asset('img/'.$membre->img_membre) }}" alt="Photo {{ $membre->pseudo }}">
+                                </div>
+                                <div class="profil_card_infos">
+                                    <h3>{{ $membre->pseudo }}</h3>
+                                    <p>{{ $membre->place }}</p>
+                                </div>
+                                <ul class="profil_card_social">
+                                    @if ($membre->twitter)<li><a href="https://twitter.com/{{ $membre->twitter }}" target="_blank"><i class='bx bxl-twitter'></i></a></li>@endif
+                                    @if ($membre->instagram)<li><a href="https://instagram.com/{{ $membre->instagram }}" target="_blank"><i class='bx bxl-instagram'></i></a></li>@endif
+                                    @if ($membre->twitch)<li><a href="https://twitch.com/{{ $membre->twitch }}" target="_blank"><i class='bx bxl-twitch'></i></a></li>@endif
+                                </ul>
+                            </div>
                         </div>
-                        <div class="profil_card_infos">
-                            <h3>Pseudo</h3>
-                            <p>Place occupée</p>
-                        </div>
-                        <ul class="profil_card_social">
-                            <li><a href=""><i class='bx bxl-twitter'></i></a></li>
-                            <li><a href=""><i class='bx bxl-discord'></i></a></li>
-                            <li><a href=""><i class='bx bxl-twitch'></i></a></li>
-                        </ul>
-                    </div>
-                    
-                </div>
+                    @endif
+                @endforeach
             </div>
         </section>
 
@@ -65,24 +67,26 @@
                 <div class="container_title" data-aos="fade-up">
                     <h2>Notre staff</h2>
                 </div>
-                <div class="profils_card_list">
-
-                    <div class="profil_card" data-aos="zoom-in-up" data-aos-delay="100">
-                        <div class="img_container">
-                            <img src="{{ asset('img/default_user.png') }}" alt="">
+                @foreach ($membres as $membre)
+                    @if ($membre->poste === "staff")
+                        <div class="profils_card_list">
+                            <div class="profil_card" data-aos="zoom-in-up" data-aos-delay="100">
+                                <div class="img_container">
+                                    <img src="{{ asset('img_team/'.$membre->img_membre) }}" alt="Photo {{ $membre->pseudo }}">
+                                </div>
+                                <div class="profil_card_infos">
+                                    <h3>{{ $membre->pseudo }}</h3>
+                                    <p>{{ $membre->place }}</p>
+                                </div>
+                                <ul class="profil_card_social">
+                                    @if ($membre->twitter)<li><a href="https://twitter.com/{{ $membre->twitter }}" target="_blank"><i class='bx bxl-twitter'></i></a></li>@endif
+                                    @if ($membre->instagram)<li><a href="https://instagram.com/{{ $membre->instagram }}" target="_blank"><i class='bx bxl-instagram'></i></a></li>@endif
+                                    @if ($membre->twitch)<li><a href="https://twitch.com/{{ $membre->twitch }}" target="_blank"><i class='bx bxl-twitch'></i></a></li>@endif
+                                </ul>
+                            </div>
                         </div>
-                        <div class="profil_card_infos">
-                            <h3>Pseudo</h3>
-                            <p>Place occupée</p>
-                        </div>
-                        <ul class="profil_card_social">
-                            <li><a href=""><i class='bx bxl-twitter'></i></a></li>
-                            <li><a href=""><i class='bx bxl-discord'></i></a></li>
-                            <li><a href=""><i class='bx bxl-twitch'></i></a></li>
-                        </ul>
-                    </div>
-                    
-                </div>
+                    @endif
+                @endforeach
             </div>
         </section>
     </main>

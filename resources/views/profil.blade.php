@@ -55,9 +55,9 @@
                     @endif
                 </div>
                 @auth
-                @if ($user->admin === 0)
+                @if ($user->admin === 0 && $user->id !== auth()->id())
                 <div class="btn_send_msg">
-                    <a href="">Envoyer un message</a>
+                    <a href="/chat/{{ $user->id }}">Envoyer un message</a>
                 </div>
                 @endif
                 @endauth

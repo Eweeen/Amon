@@ -1,19 +1,15 @@
-@extends('layouts.app')
-
-@section("styles")
-    <link href="{{ asset('css/admin.css') }}" rel="stylesheet">
-@endsection
+@extends('layouts.admin')
 
 @section("content") 
     <main>
         <div class="sidebar">
 
-            <div class="sidebar_brand">
+            <a href="/" class="sidebar_brand">
                 <div class="img_container">
-                    <img src="" alt="">
+                    <img src="{{ asset('img/logo.png') }}" alt="Logo Amon">
                 </div>
                 <p>Amon</p>
-            </div>
+            </a>
             
             <ul class="sidebar_list">
                 <li class="sidebar_item" data-link="">
@@ -23,7 +19,7 @@
                     <a href="{{ Route("actus") }}" class="sidebar_link {{Route::getCurrentRoute()->uri() == 'admin/actus' ? 'active_link' : '' }}"><i class='bx bx-news'></i><span>Actualités</span></a>
                 </li>
                 <li class="sidebar_item" data-link="">
-                    <a href="{{ Route("team") }}" class="sidebar_link {{Route::getCurrentRoute()->uri() == 'admin/team' ? 'active_link' : '' }}"><i class='bx bx-group' ></i><span>Team</span></a>
+                    <a href="{{ Route("admin.team") }}" class="sidebar_link {{Route::getCurrentRoute()->uri() == 'admin/team' ? 'active_link' : '' }}"><i class='bx bx-group' ></i><span>Team</span></a>
                 </li>
             </ul>
             <div class="btn btn_deconnexion">
@@ -56,49 +52,33 @@
                         <p>Slider</p>
                     </div>
                     <div class="container_block_content">
-                        <form action="" method="post">
+                        @if ($errors->any())
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                            <br>
+                        @endif
 
+                        <form action="/admin/slide" method="post" enctype="multipart/form-data">
+                            @csrf
                             <ul class="slide_list">
+                                @for ($i = 0; $i < count($slider); $i++)
                                 <li class="slide_item">
                                     <div class="img_container">
-                                        <img src="" alt="">
+                                        <img src="{{ asset('slider/'.$slider[$i]->path) }}" alt="Image slide {{ $i + 1 }}">
                                     </div>
-                                    <p>Slide 1</p>
+                                    <p>Slide {{ $i + 1 }}</p>
                                     <div class="slide_tools">
-                                        <i class='bx btn bx-trash'></i>
+                                        <i class='bx btn bx-trash' data-id="{{ $slider[$i]->id }}"></i>
                                     </div>
                                 </li>
-                                <li class="slide_item">
-                                    <div class="img_container">
-                                        <img src="" alt="">
-                                    </div>
-                                    <p>Slide 2</p>
-                                    <div class="slide_tools">
-                                        <i class='bx btn bx-trash'></i>
-                                    </div>
-                                </li>
-                                <li class="slide_item">
-                                    <div class="img_container">
-                                        <img src="" alt="">
-                                    </div>
-                                    <p>Slide 3</p>
-                                    <div class="slide_tools">
-                                        <i class='bx btn bx-trash'></i>
-                                    </div>
-                                </li>
-                                <li class="slide_item">
-                                    <div class="img_container">
-                                        <img src="" alt="">
-                                    </div>
-                                    <p>Slide 4</p>
-                                    <div class="slide_tools">
-                                        <i class='bx btn bx-trash'></i>
-                                    </div>
-                                </li>
+                                @endfor
                             </ul>
 
                             <div class="create_new_slide">
-                                <input type="file" name="img_new_slide" id="img_new_slide">
+                                <input type="file" name="img_new_slide" id="img_new_slide" accept="image/*">
                                 <label for="img_new_slide" class="create_new_slide_container btn">
                                     <i class='bx bx-image-add'></i>
                                     <p>Import une image</p>
@@ -107,13 +87,14 @@
 
                             <div class="footer_btn">
                                 <button type="submit">
-                                    Enregistrer
+                                    <!-- Enregistrer -->
+                                    Ajouter une slide
                                 </button>
 
-                                <div class="add_new_slide btn">
+                                <!-- <div class="add_new_slide btn">
                                     <i class='bx bx-plus'></i>
                                     <p>Ajouter une slide</p>
-                                </div>
+                                </div> -->
                             </div>
                         </form>
                     </div>
@@ -122,9 +103,12 @@
         </section>
     </main>
 @endsection
-@section("script")
 
-    <script type="text/javascript" src="{{ asset('js/index.js') }}"></script>
-    <script src="https://platform.twitter.com/widgets.js"></script>
-
+@section('script')
+<script>
+    $(document).on('click', '.bx-trash', function(){
+        $(this).parents('.slide_item').remove();
+        axios.delete('/admin/delete/slide/'+$(this).attr('data-id'));
+    });
+</script>
 @endsection

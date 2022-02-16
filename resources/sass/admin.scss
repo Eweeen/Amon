@@ -36,6 +36,7 @@ main {
             border-radius: 50%;
         }
         p {
+            color: $white-1;
             letter-spacing: 1px;
             text-transform: uppercase;
             margin-left: $m-4;
@@ -170,6 +171,9 @@ main {
                         margin-bottom: $m-4;
                     }
                     .img_container {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
                         width: 150px;
                         height: 75px;
                         background: $grey-3;

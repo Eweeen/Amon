@@ -18,19 +18,19 @@ main {
 }
 
 /* ============= FORM ============= */
-@media screen and (min-width: 576px) {
+#register-form {
+  background: #1C1C1D;
+  height: 100vh;
+  padding: 20px;
+}
+@media screen and (min-width: 768px) {
   #register-form {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 65%;
-    padding: 20px;
-    background: #1C1C1D;
-  }
-}
-@media screen and (min-width: 768px) {
-  #register-form {
+    height: auto;
     padding: 50px 60px;
   }
 }

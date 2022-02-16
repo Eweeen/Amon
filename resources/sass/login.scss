@@ -19,6 +19,7 @@ main {
     justify-content: center;
     height: 100vh;
     padding: 30px;
+    background: $grey-1;
     @include up-phone {
         padding: 80px;
     }
@@ -30,7 +31,6 @@ main {
         width: 55%;
         height: auto;
         padding: 80px 65px;
-        background: $grey-1;
     }
     @include laptop {
         width: 40%;
